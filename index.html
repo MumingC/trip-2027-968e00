@@ -1370,6 +1370,23 @@ const SEG={
       ["first","First 纜車與 Bachalpsee","8/5","懸崖步道，再走約 1 小時到倒映雪山的高山湖","火車到 Grindelwald 約 35 分鐘，再搭纜車約 25 分鐘","一家約 0.35–0.6 萬（未查證）",SN["sn-1c"],"Bachalpsee Grindelwald"]],
     cost:[["住宿 3 晚","2.6–6.8 萬","見下面的住宿選擇"],["餐飲","1.4–2.1 萬","山上餐廳比山下貴 20–40%，帶野餐"],["交通與門票","2.2–2.7 萬","少女峰車站 1.3–1.5 萬、First、Lauterbrunnen、往返的火車"]],sum:"約 6–12 萬"}
 };
+// 小孩能不能玩（3／8／12 歲，2026-11-23）
+const KIDS={
+  lhafen:"3、8、12 歲都可以；平路，推車可以走",
+  pfander:"3、8、12 歲都可以；纜車加山頂散步",
+  mecken:"3 歲最適合；8 歲也好玩；12 歲可能覺得太幼稚",
+  neusch:"3、8、12 歲都可以；3 歲上坡要背帶，城堡裡不能推推車",
+  fdh:"3、8、12 歲都可以",
+  kapell:"3、8、12 歲都可以；平路，推車可以走",
+  vhs:"3、8、12 歲都可以；三個都適合，是全程最適合小孩的一站",
+  rigi:"3、8、12 歲都可以；坐船和齒軌火車，小孩坐著就好",
+  pilatus:"3、8、12 歲都可以；中途站 Fräkmüntegg 的滑道和繩索公園有年齡、身高限制（未查證）",
+  interlaken:"3、8、12 歲都可以",
+  lauter:"3、8、12 歲都可以；附近的 Trümmelbach 山洞瀑布<b>未滿 4 歲不能進</b>，老三去不了",
+  kls:"3、8、12 歲都可以；不想帶 3 歲上山頂，可以一個大人帶老三在這裡等",
+  jfj:"沒有年齡限制，5 歲以下免費；3 歲要注意高山反應，不舒服就下山",
+  first:"纜車和步道 3、8、12 歲都可以；滑翔索、卡丁車、滑板車、滑索有身高限制，見下面的表"
+};
 function segMaps(k){
   const S=SEG[k];
   return '<section><h2>地圖</h2><div class="mapgrid two">'+
@@ -1381,7 +1398,7 @@ function segMaps(k){
 }
 function segSpots(k){
   return '<section><h2>景點</h2><div class="sights">'+SEG[k].spots().map((s,i)=>
-    '<figure class="sg" id="sg-'+k+'-'+(i+1)+'"><div class="sg-ph"><img src="'+s[6].src+'" alt="'+s[1]+'" loading="lazy"><span class="sg-n">'+(i+1)+'</span>'+creditHTML(s[6])+'</div><figcaption><span class="sg-day">'+s[2]+'</span>'+gmq(s[1]+' ↗',s[7])+'<span class="sg-tx">'+s[3]+'</span><dl class="sg-dl"><dt>怎麼去</dt><dd>'+s[4]+'</dd><dt>花費</dt><dd>'+s[5]+'</dd></dl></figcaption></figure>').join("")+'</div>'+
+    '<figure class="sg" id="sg-'+k+'-'+(i+1)+'"><div class="sg-ph"><img src="'+s[6].src+'" alt="'+s[1]+'" loading="lazy"><span class="sg-n">'+(i+1)+'</span>'+creditHTML(s[6])+'</div><figcaption><span class="sg-day">'+s[2]+'</span>'+gmq(s[1]+' ↗',s[7])+'<span class="sg-tx">'+s[3]+'</span><dl class="sg-dl"><dt>怎麼去</dt><dd>'+s[4]+'</dd><dt>花費</dt><dd>'+s[5]+'</dd>'+(KIDS[s[0]]?'<dt>小孩</dt><dd>'+KIDS[s[0]]+'</dd>':'')+'</dl></figcaption></figure>').join("")+'</div>'+
     note("點景點名稱會開 Google 地圖，可以直接查路線。")+'</section>';
 }
 function segPage(k){
@@ -1390,6 +1407,15 @@ function segPage(k){
   const i=["lindau","luzern","ilk"].indexOf(k),prev=["lindau","luzern","ilk"][i-1],next=["lindau","luzern","ilk"][i+1];
   return sec("這幾天怎麼排",tbl(["日期","安排"],S.days))+
     segMaps(k)+segSpots(k)+
+    (k==="ilk"?sec("有年齡、身高限制的項目",tbl(["項目","限制","3 歲","8 歲","12 歲"],[
+      ["Trümmelbach 山洞瀑布","未滿 4 歲不能進","✗","✓","✓"],
+      ["First Glider（老鷹滑翔索）","身高 130 公分以上；網路票限 10 歲以上","✗","大概不行","✓"],
+      ["First Mountain Cart（山地卡丁車）","身高 135 公分以上","✗","大概不行","✓"],
+      ["Trottibike（下坡滑板車）","身高 125 公分以上；有小小孩的迷你款","✗","剛好","✓"],
+      ["First Flyer（高空滑索）","體重 35 公斤以上","✗","✗","看體重"],
+      ["少女峰車站（3,454 公尺）","沒有限制；5 歲以下免費","要注意","✓","✓"]],"wr")+
+      note("2026-11-23 查 Jungfrau 官網與 Trümmelbach 官網；身高是用 8 歲約 125–130 公分、12 歲約 150 公分估計。蘇黎世大學在少女峰車站的研究：約一半的小孩有輕微高山症狀，比大人多，但通常不嚴重。")+
+      ul(["老三能玩的：纜車、登山火車、遊船、First 中途站 Bort 的遊樂場、Lauterbrunnen 平地散步","大孩子去玩滑翔索、卡丁車時，一個大人帶老三在 First 山頂步道或 Bort 遊樂場"])):"")+
     stayCity(S.stay).replace(/<h2>[^<]*<\/h2>/,'<h2>住宿選擇（'+STAY[S.stay].note+'）</h2>')+
     sec("這一站花費（"+FAM+"）",tbl(["項目","估計","說明"],S.cost.concat([{cells:["小計",S.sum,""],total:1}]))+note("全部項目在<a class=\"go\" href=\"#cost\">花費明細</a>；所有住宿的比較在<a class=\"go\" href=\"#stay\">住宿</a>頁。"))+
     '<section class="seg-nav">'+(prev?'<a class="card" href="#'+prev+'"><h3>← 上一站：'+SEG[prev].title+'</h3></a>':'<a class="card" href="#home"><h3>← 全部行程</h3></a>')+
