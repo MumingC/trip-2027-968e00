@@ -1664,6 +1664,113 @@ function W15A(){
     {cells:["合計","約 35–57 萬","約 47–64 萬"],total:2}])+
     note("15 天版的合計是用瑞士版的地面花費，加上多一天的吃住和多幾段火車估的；機票是實查。主要多在機票：直飛加土航比國泰經香港，每位大人多約 2.3 萬。"));
 }
+// ---------- 德義版（多洛米蒂＋Bolzano）與 Zillertal 組合（2026-11-24） ----------
+function DIBODY(){
+  const L='<a class="go" href="#lindau">林道</a>';
+  return sec("每日行程（7 月 25 日出發，15 天・12 晚）",tbl(["日期","住","安排"],[
+    ["7/25（日）","飛機上","晚上 23:25 長榮從桃園直飛慕尼黑"],
+    ["7/26（一）",L,"清晨 07:35 到慕尼黑，火車約 2.5 小時到林道，休息倒時差"],
+    ["7/27（二）",L,gmq("拉文斯堡遊戲樂園","Ravensburger Spieleland")],
+    ["7/28（三）",L,"<b>林道兒童節</b>：早上看小孩遊行；下午 "+gmq("Pfänder 纜車","Pfänderbahn Bregenz")],
+    ["7/29（四）",L,"島上老城散步、博登湖遊船；新天鵝堡想去就這天當天來回"],
+    {cells:["7/30（五）","Ortisei","火車約 6–6.5 小時：林道 → Innsbruck → Bolzano，再坐 350 號公車上山約 1 小時（開車約 4.5 小時，但德國租車義大利還很貴）"],cls:"rec"},
+    {cells:["7/31（六）","Ortisei","坐纜車上 "+gmq("Seiser Alm 高山草原","Seiser Alm Bahn Ortisei")+"：路平，可以推車；山屋吃午餐（Knödel 麵包丸子、Kaiserschmarrn 鬆餅）"],cls:"rec"},
+    ["8/1（日）","Ortisei","坐纜車上 "+gmq("Seceda","Seceda Ortisei")+" 看鋸齒岩峰，山上走 30 分鐘就夠；下午逛 Ortisei 步行街（木雕店）"],
+    {cells:["8/2（一）","Bolzano","公車約 1 小時下山到 Bolzano；下午逛 "+gmq("Laubengasse 拱廊老街","Via dei Portici Bolzano")+"、"+gmq("Piazza delle Erbe 市集","Piazza delle Erbe Bolzano")],cls:"rec"},
+    {cells:["8/3（二）","Bolzano","早上 "+gmq("冰人博物館","Südtiroler Archäologiemuseum Bozen")+"（先上網訂時段）；下午坐 "+gmq("Ritten 纜車","Rittner Seilbahn Bozen")+"，換"+gmq("百年窄軌小火車","Rittner Bahn Oberbozen")+"，看"+gmq("土金字塔","Erdpyramiden Ritten")],cls:"rec"},
+    ["8/4（三）","Bolzano","火車當天來回 "+gmq("Merano","Merano")+"（約 40 分鐘，拱廊老街、溫泉、河邊步道）或 "+gmq("Brixen","Bressanone")+"（約 30 分鐘，主教座堂、老城）"],
+    ["8/5（四）","慕尼黑","Bolzano 坐直達火車約 4 小時到慕尼黑；下午 "+gmq("Viktualienmarkt 市集","Viktualienmarkt München")+"、瑪麗恩廣場"],
+    ["8/6（五）","慕尼黑",gmq("德意志博物館","Deutsches Museum München")+"或"+gmq("交通館","Verkehrszentrum Deutsches Museum")+"（老火車、電車）；整理行李"],
+    ["8/7（六）","飛機上","S-Bahn 約 40 分鐘到機場；12:00 長榮直飛"],
+    ["8/8（日）","—","清晨 06:35 到桃園"]])+
+    note("Ortisei 和 Bolzano 都在義大利的南提洛，德語、義語都通。火車與公車時間是一般估計，訂票前用 ÖBB／DB 時刻表確認。")+
+    ul(["為什麼山上只住 3 晚：Seiser Alm、Seceda 都是坐纜車上去，各一天就看到多洛米蒂最有名的景色；後面 3 晚住 Bolzano，吃和逛都在走路範圍內","不想換那麼多次：可以 6 晚都住 Ortisei，Bolzano 當天來回（公車約 1 小時），但住宿要多 4–6 萬，吃也比較少選擇","為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"]))+
+  sec("機票（2026-11-24 實查）",tbl(["方向","航班","起飛 → 抵達（當地時間）","整趟每位大人"],[
+    {cells:["去 7/25","長榮直飛慕尼黑","23:25 → 隔天 07:35",""],cls:"rec"},
+    {cells:["回 8/7","長榮直飛台北","12:00 → 隔天 06:35","<b>48,849 元</b>"],cls:"rec"}])+
+    note("和德南版同一張票。一家五口約 22 萬。"))+
+  sec("住宿（2026-11-24 用 Booking 實查）",tbl(["地方","住宿","位置","房型","評分","總價（含稅）"],[
+    [L+" 4 晚","和瑞士版一樣","","","",'2.9–6.3 萬（<a class="go" href="#stay">住宿頁</a>）'],
+    ["Ortisei 3 晚",bk("Alpin Sport 公寓","it/alpin-sport.zh-tw.html","2027-07-30","2027-08-02"),"離市中心 2.2 公里","整層 2 房、2 衛浴、71 m²","9.3","6.3 萬"],
+    ["",bk("Apartment Rainer","it/apartment-rainer.zh-tw.html","2027-07-30","2027-08-02"),"離市中心 0.6 公里","整層 2 房、70 m²、廚房","9.1","7.5 萬"],
+    ["",bk("Residence Prapoz","it/residence-prapoz.zh-tw.html","2027-07-30","2027-08-02"),"離市中心 0.8 公里","整層 2 房、2 衛浴、70 m²","9.3","8.8 萬"],
+    ["Bolzano 3 晚",bk("Stay COOPER Laurenz","it/residence-laurenz.zh-tw.html","2027-08-02","2027-08-05"),"老城，離市中心 350 公尺","整層 2 房、2 衛浴、110 m²","8.4","3.4 萬"],
+    ["",bk("Talvera Dream","it/talvera-dream.zh-tw.html","2027-08-02","2027-08-05"),"離市中心 0.5 公里","整層 2 房、廚房、頂樓","9.6","3.4 萬"],
+    ["",bk("Stay COOPER Laubenhaus","it/laubenhaus.zh-tw.html","2027-08-02","2027-08-05"),"拱廊老街上，離市中心 150 公尺","頂樓整層 2 房、2 衛浴、80 m²","8.7","4.4 萬"],
+    ["慕尼黑 2 晚",bk("Novotel Suites München Parkstadt Schwabing","de/suitehotelmunchenparkstadtschwabing.zh-tw.html","2027-08-05","2027-08-07"),"北邊 Schwabing","兩間家庭套房","8.0","1.1 萬"],
+    ["",bk("gambino hotel WERKSVIERTEL","de/gambino-werksviertel.zh-tw.html","2027-08-05","2027-08-07"),"東站旁，離市中心 2.6 公里","家庭房＋單人房","8.5","1.1 萬"],
+    {cells:["合計 12 晚","","","","","約 14–21 萬"],total:5}])+
+    note("2 大 3 小（12、8、3 歲）、一間房查，不列青年旅館、上下舖和共用衛浴。Ortisei 是 8 月旺季，3 晚就要 6–9 萬；同樣 3 晚 Bolzano 只要 3.4–4.4 萬。"))+
+  sec("小孩子適合嗎？",tbl(["站","3 歲","8、12 歲"],[
+    [L,"兒童節遊行、遊戲樂園、Pfänder 纜車都可以","都可以"],
+    ["Ortisei","Seiser Alm 最適合：路平、有遊樂場；Seceda 山頂風大，待 1–2 小時就好","纜車、高山草原；7/30 坐車 6 小時最累"],
+    ["Bolzano","冰人博物館對 3 歲太難，大人輪流陪；Ritten 小火車可以","冰人博物館、Ritten 窄軌小火車，兩個愛火車的會喜歡"]]))+
+  sec("預估花費（"+FAM+"、15 天・12 晚）",tbl(["項目","金額","說明"],[
+    ["機票","約 22 萬","長榮直飛來回（實查）"],
+    ["住宿 12 晚","14–21 萬","上面實查的價格；Ortisei 那 3 晚最貴"],
+    ["餐飲","5–6.5 萬","義大利比瑞士便宜，有廚房的地方自己煮（估計）"],
+    ["交通","1.5–2.5 萬","慕尼黑–林道、林道–Ortisei、Bolzano–慕尼黑的火車；南提洛很多住宿送客人卡，區內公車火車免費（估計）"],
+    ["門票","1.5–2.5 萬","纜車（Seiser Alm、Seceda、Ritten）、冰人博物館、遊戲樂園、Pfänder（估計）"],
+    ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"],
+    {cells:["合計","約 45–56 萬",""],total:1}])+
+    note("機票和住宿是實查，其他是經驗估計。"))+
+  '<section class="cols"><div><h2>好處</h2>'+ul(["多洛米蒂的鋸齒岩峰，坐纜車就看得到，不用爬山","Bolzano 吃得最好：義大利菜加南提洛菜，市集、拱廊老街都在走路範圍","去回都長榮直飛，和德南版同一張票","沒有少女峰那種年齡、身高限制"])+'</div><div><h2>要注意</h2>'+ul(["7/30 林道到 Ortisei 要坐 6 小時以上的車","換 3 次住處（林道 → Ortisei → Bolzano → 慕尼黑），比瑞士版、德南版多一次","Ortisei 8 月住宿很貴，要早訂","Tre Cime、Braies 湖離 Ortisei 遠，沒有車不排"])+'</div></section>'+
+  ZILBODY();
+}
+function ZILBODY(){
+  const L='<a class="go" href="#lindau">林道</a>';
+  return '<h2 style="margin-top:2rem">另一種排法：Zillertal＋多洛米蒂</h2>'+
+  sec("每日行程（林道 4 → Zillertal 3 → Bolzano 4 → 慕尼黑 1）",tbl(["日期","住","安排"],[
+    ["7/25–7/29",L,"和上面一樣（7/28 兒童節）"],
+    {cells:["7/30（五）","Mayrhofen","火車約 4–4.5 小時：林道 → Innsbruck → Jenbach，換 "+gmq("Zillertalbahn 窄軌火車","Zillertalbahn Jenbach")+"到 Mayrhofen"],cls:"rec"},
+    ["7/31（六）","Mayrhofen","坐纜車上 "+gmq("Ahorn","Ahornbahn Mayrhofen")+" 或 "+gmq("Penken","Penkenbahn Mayrhofen")+"：山上遊樂場、平緩步道"],
+    ["8/1（日）","Mayrhofen","火車當天來回 "+gmq("Innsbruck 老城","Goldenes Dachl Innsbruck")+"（黃金屋頂、Maria-Theresien-Straße）；回程可以坐 Zillertalbahn 的蒸汽火車班次"],
+    {cells:["8/2（一）","Bolzano","Zillertalbahn 到 Jenbach，換直達火車到 Bolzano，約 3.5 小時；傍晚逛拱廊老街"],cls:"rec"},
+    {cells:["8/3（二）","Bolzano","當天來回 "+gmq("Seiser Alm","Seiser Alm Bahn Seis")+"：公車到 Seis，坐纜車上去，約 1 小時"],cls:"rec"},
+    ["8/4（三）","Bolzano","冰人博物館；下午 Ritten 纜車＋窄軌小火車"],
+    ["8/5（四）","Bolzano","Piazza delle Erbe 市集；Merano 或 Brixen 當天來回"],
+    ["8/6（五）","慕尼黑","直達火車約 4 小時到慕尼黑；Viktualienmarkt 市集"],
+    ["8/7–8/8","—","12:00 長榮直飛，8/8 清晨到桃園"]])+
+    note("Zillertal 的客人卡（Zillertal Activcard）據說包含每天搭纜車和公車，蒸汽火車只在夏天特定日子開，這兩點訂之前要確認。"))+
+  sec("住宿（2026-11-24 用 Booking 實查）",tbl(["地方","住宿","位置","房型","評分","總價（含稅）"],[
+    ["Mayrhofen 3 晚",bk("Apartment with garden","at/peaceful-apartment-in-mayrhofen-with-terrace.zh-tw.html","2027-07-30","2027-08-02"),"離市中心 2.8 公里","整層 2 房、70 m²、廚房","8.6","2.3 萬"],
+    ["",bk("Appartements zum Strossna","at/appartements-zum-strossna.zh-tw.html","2027-07-30","2027-08-02"),"離市中心 0.6 公里","整層 2 房、2 衛浴、78 m²","9.2","3.4 萬"],
+    ["",bk("Postresidenz","at/postresidenz.zh-tw.html","2027-07-30","2027-08-02"),"市中心","整層 2 房、2 衛浴、72 m²","8.9","4.3 萬"],
+    ["Bolzano 4 晚",bk("Talvera Dream","it/talvera-dream.zh-tw.html","2027-08-02","2027-08-06"),"離市中心 0.5 公里","整層 2 房、廚房、頂樓","9.6","4.5 萬"],
+    ["",bk("Stay COOPER Laurenz","it/residence-laurenz.zh-tw.html","2027-08-02","2027-08-06"),"老城，離市中心 350 公尺","整層 2 房、2 衛浴、110 m²","8.4","4.5 萬"],
+    ["",bk("Stay COOPER Laubenhaus","it/laubenhaus.zh-tw.html","2027-08-02","2027-08-06"),"拱廊老街上","頂樓整層 2 房、2 衛浴、80 m²","8.7","5.9 萬"],
+    ["慕尼黑 1 晚","同上面兩間","","","","約 0.6 萬（2 晚價格推算）"],
+    {cells:["合計 12 晚","","","","","約 10–17 萬"],total:5}])+
+    note("同樣條件查。Zillertal 比 Ortisei 便宜很多：3 晚 2.3–4.3 萬。"))+
+  sec("和上面的德義版比",tbl(["","德義版","Zillertal 組合"],[
+    ["住哪裡","林道 4、Ortisei 3、Bolzano 3、慕尼黑 2","林道 4、Zillertal 3、Bolzano 4、慕尼黑 1"],
+    ["最長的一段車","7/30 約 6–6.5 小時","7/30 約 4–4.5 小時，8/2 約 3.5 小時"],
+    ["多洛米蒂","住在山裡 3 晚，早晚都看得到","從 Bolzano 當天來回一次"],
+    ["火車","Ritten 小火車","Zillertalbahn 窄軌（夏天有蒸汽火車）＋ Ritten 小火車"],
+    ["吃、逛","Bolzano 3 晚＋Merano","Innsbruck 老城＋Bolzano 4 晚＋Merano"],
+    ["住宿 12 晚","14–21 萬","10–17 萬"],
+    {cells:["合計","約 45–56 萬","約 41–53 萬"],total:1}])+
+    note("Zillertal 組合比較便宜，路上也分成兩段、不用一次坐太久；代價是多洛米蒂只看一天，而且 Zillertal 的山和瑞士、德南差不多。"));
+}
+// 給愛吃、愛逛市集／老街、不愛爬山的人：每個方案的評價
+function FOODSEC(){
+  const s=n=>'<span aria-label="'+n+' 顆星">'+"★".repeat(n)+'<span style="opacity:.25">'+"★".repeat(5-n)+'</span></span>';
+  const g=(k,t)=>'<a class="go" href="javascript:cmpGo(\''+k+'\')">'+t+'</a>';
+  const o=(k,t)=>'<a class="go" href="#'+k+'">'+t+'</a>';
+  return sec("如果最愛吃、逛市集和老街，不愛爬山",tbl(["方案","吃","市集、老街","要走山路嗎","說明"],[
+    {cells:[g("at","德奧版"),s(5),s(5),"幾乎不用","薩爾斯堡老城和 Grünmarkt 市集、Hallstatt 湖邊小鎮、維也納 Naschmarkt 市集和咖啡館、甜點。最符合"],cls:"rec"},
+    {cells:[g("di","德義版"),s(5),s(4),"不用，坐纜車","Bolzano 的 Piazza delle Erbe 市集、拱廊老街、義大利菜，Merano 老城；前 3 晚在山上，吃的選擇少"],cls:"rec"},
+    [o("czech","捷克"),s(3),s(5),"不用","庫倫洛夫整座老城是世界遺產，布拉格住 5 晚；物價最便宜，但捷克菜偏重口味（豬腳、燉肉）"],
+    [g("di","Zillertal 組合"),s(4),s(4),"不用，坐纜車","Innsbruck 老城＋Bolzano 4 晚；Zillertal 是山村，吃奧地利菜"],
+    [o("salzburg","薩爾斯堡湖區"),s(3),s(4),"湖區有一些","薩爾斯堡 3 晚很適合；湖區 3 晚以湖景、健行為主"],
+    [g("de","德南版"),s(3),s(4),"Garmisch 有峽谷步道","慕尼黑 Viktualienmarkt 市集、啤酒花園、紐倫堡老城；德國菜多是香腸、豬腳"],
+    [o("slovenia","斯洛維尼亞"),s(3),s(3),"有一些","布雷德湖奶油蛋糕；盧布爾雅那中央市場要當天來回；Zell am See 是湖邊度假小鎮"],
+    ['<a class="go" href="#home">瑞士版</a>',s(2),s(3),"不用，都坐車","琉森老城和河邊市集；但瑞士外食貴、選擇少，Interlaken 小鎮沒什麼好逛"],
+    [g("wa","家人 A 版"),s(2),s(3),"不用","Füssen 老城一晚，其他同瑞士版"],
+    [o("tirol","提洛"),s(2),s(2),"山為主","Zillertal 住 6 晚，以纜車和山上活動為主，Innsbruck 要當天來回"]])+
+    note("每一版的第一站都是林道：島上老城很好逛。市集一般週日休息；以上是一般情況，沒有逐一實查營業日。")+
+    ul(["<b>最符合：德奧版、德義版。</b>德奧版城市最多；德義版多了多洛米蒂的山景，但都是坐纜車上去","<b>想便宜又想逛老城：捷克。</b>","<b>瑞士版最不符合</b>：風景最好，但吃和逛都比較弱"]));
+}
 // ---------- 其他版本（2026-11-24）：比較表＋德南版、德奧版、家人 A 版都在同一頁（B 版 11/24 拿掉） ----------
 KIND.cmp="alp";
 let CMPTAB="de";
@@ -1725,34 +1832,37 @@ function DSBODY(){
 }
 D.cmp={short:"其他版本",name:"其他版本",render(){
   const tabs=[["de","德南版",DSBODY,"慕尼黑進出・林道 4、Garmisch 3、慕尼黑 5・去回都直飛"],
+              ["di","德義版",DIBODY,"慕尼黑進出・林道 4、Ortisei 3、Bolzano 3、慕尼黑 2・去回都直飛；最下面另附 Zillertal 組合"],
               ["at","德奧版",ATBODY,"慕尼黑進、維也納出・林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3・去回都直飛"],
               ["wa","家人 A 版",W15A,"慕尼黑進、蘇黎世出・後半段和瑞士版一樣"]];;
   const bodies=tabs.map(t=>t[2]());   // 先產生內容（會改到 hero），最後再設這頁的 hero
   const cur=tabs.some(t=>t[0]===CMPTAB)?CMPTAB:"de"; CMPTAB="de";
-  heroPlain("2027 年 7 月底・瑞士版以外的三個走法","其他版本","德南版、德奧版，加上家人提的 A 版。先看比較表，下面再切換看每一版的行程、機票和住宿。金額都是一家五口。",["3 個版本","約 40–64 萬"],D.de.hero);
+  heroPlain("2027 年 7 月底・瑞士版以外的四個走法","其他版本","德南版、德義版、德奧版，加上家人提的 A 版。先看比較表，下面再切換看每一版的行程、機票和住宿。金額都是一家五口。",["4 個版本","約 40–64 萬"],D.de.hero);
   const g=(k,t)=>'<a class="go" href="javascript:cmpGo(\''+k+'\')">'+t+'</a>';
   if(!document.getElementById("vtab-css")){const st=document.createElement("style");st.id="vtab-css";st.textContent='.vtabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 4px;scroll-margin-top:72px}#vtabs{scroll-margin-top:72px}.vtab{font:inherit;font-weight:700;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}.vtab[aria-selected="true"]{background:var(--lake);border-color:var(--lake);color:var(--surface)}.vlead{color:var(--muted);margin:6px 0 0}';document.head.appendChild(st);}
-  return sec("一張表看差異",tbl(["",'<a class="go" href="#home">瑞士版</a>（主行程）',g("de","德南版"),g("at","德奧版"),g("wa","家人 A 版")],[
-    ["天數","14 天・11 晚","15 天・12 晚","14 天・11 晚","15 天・12 晚"],
-    ["日期（台灣）","7/25–8/7","7/25–8/8","7/25–8/7","7/25–8/8"],
-    ["進出","蘇黎世進出","慕尼黑進出","慕尼黑進、維也納出","慕尼黑進、蘇黎世出"],
-    ["住哪裡","林道 4、琉森 4、少女峰 3","林道 4、Garmisch 3、慕尼黑 5","林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3","慕尼黑 1、Füssen 1、林道 2、琉森 4、Interlaken 3、蘇黎世 1"],
-    ["換住處","<b>2 次</b>","<b>2 次</b>","3 次","5 次"],
-    ["7/28 兒童節","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住 Füssen，清晨要趕路"],
-    ["新天鵝堡","從林道當天來回","去 Garmisch 路上順路","從林道當天來回","住 Füssen 但排不進去"],
-    ["主要玩什麼","交通博物館、Rigi、Pilatus、少女峰的齒軌火車","Zugspitze 齒軌火車、德意志博物館、紐倫堡鐵道博物館、樂高樂園","Pfänder、薩爾斯堡老城、Schafberg 齒軌火車、湖區、維也納","前段慕尼黑、薩爾斯堡；後段和瑞士版一樣"],
-    ["交通","火車","火車；林道到 Garmisch 租車一天","火車；租車兩天","火車；7/27 一天跑三個地方"],
-    ["機票","要轉機：國泰經香港約 14 萬、新航經新加坡約 21 萬","<b>去回都直飛</b>，約 22 萬","<b>去回都直飛</b>，約 23–26 萬","長榮直飛去、土航轉機回，約 24 萬"],
-    ["住宿","11 晚約 9–19 萬","12 晚約 8–14 萬","11 晚約 8–13 萬","前段 3.0–5.4 萬，琉森和 Interlaken 同瑞士版"],
-    ["3 歲","大部分可以；少女峰有幾項有年齡、身高限制","樂高樂園、遊戲樂園最適合；峽谷步道推車不能進","Hallstatt 鹽礦未滿 4 歲不能進","同瑞士版，但前 3 天很累"],
-    ["最大的問題","瑞士物價高；不經香港就要搭新航","沒有瑞士的湖和雪山；只能 8/7 回","沒有瑞士的大山","前 3 天太趕"],
-    ["<b>合計</b>","約 35–57 萬（改搭新航約 42–58 萬）","約 40–50 萬","約 40–53 萬","約 47–64 萬"]])+
+  return sec("一張表看差異",tbl(["",'<a class="go" href="#home">瑞士版</a>（主行程）',g("de","德南版"),g("di","德義版"),g("at","德奧版"),g("wa","家人 A 版")],[
+    ["天數","14 天・11 晚","15 天・12 晚","15 天・12 晚","14 天・11 晚","15 天・12 晚"],
+    ["日期（台灣）","7/25–8/7","7/25–8/8","7/25–8/8","7/25–8/7","7/25–8/8"],
+    ["進出","蘇黎世進出","慕尼黑進出","慕尼黑進出","慕尼黑進、維也納出","慕尼黑進、蘇黎世出"],
+    ["住哪裡","林道 4、琉森 4、少女峰 3","林道 4、Garmisch 3、慕尼黑 5","林道 4、Ortisei 3、Bolzano 3、慕尼黑 2","林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3","慕尼黑 1、Füssen 1、林道 2、琉森 4、Interlaken 3、蘇黎世 1"],
+    ["換住處","<b>2 次</b>","<b>2 次</b>","3 次","3 次","5 次"],
+    ["7/28 兒童節","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住 Füssen，清晨要趕路"],
+    ["新天鵝堡","從林道當天來回","去 Garmisch 路上順路","想去就 7/29 從林道當天來回","從林道當天來回","住 Füssen 但排不進去"],
+    ["主要玩什麼","交通博物館、Rigi、Pilatus、少女峰的齒軌火車","Zugspitze 齒軌火車、德意志博物館、紐倫堡鐵道博物館、樂高樂園","坐纜車看多洛米蒂（Seiser Alm、Seceda）、Bolzano 市集和老街、Ritten 小火車","Pfänder、薩爾斯堡老城、Schafberg 齒軌火車、湖區、維也納","前段慕尼黑、薩爾斯堡；後段和瑞士版一樣"],
+    ["交通","火車","火車；林道到 Garmisch 租車一天","火車＋公車","火車；租車兩天","火車；7/27 一天跑三個地方"],
+    ["機票","要轉機：國泰經香港約 14 萬、新航經新加坡約 21 萬","<b>去回都直飛</b>，約 22 萬","<b>去回都直飛</b>，約 22 萬（和德南版同一張）","<b>去回都直飛</b>，約 23–26 萬","長榮直飛去、土航轉機回，約 24 萬"],
+    ["住宿","11 晚約 9–19 萬","12 晚約 8–14 萬","12 晚約 14–21 萬（Ortisei 最貴）","11 晚約 8–13 萬","前段 3.0–5.4 萬，琉森和 Interlaken 同瑞士版"],
+    ["3 歲","大部分可以；少女峰有幾項有年齡、身高限制","樂高樂園、遊戲樂園最適合；峽谷步道推車不能進","Seiser Alm 草原路平、能推車；沒有年齡、身高限制","Hallstatt 鹽礦未滿 4 歲不能進","同瑞士版，但前 3 天很累"],
+    ["最大的問題","瑞士物價高；不經香港就要搭新航","沒有瑞士的湖和雪山；只能 8/7 回","7/30 要坐 6 小時以上的車；Ortisei 住宿貴","沒有瑞士的大山","前 3 天太趕"],
+    ["<b>合計</b>","約 35–57 萬（改搭新航約 42–58 萬）","約 40–50 萬","約 45–56 萬（Zillertal 組合約 41–53 萬）","約 40–53 萬","約 47–64 萬"]])+
     note("機票和住宿是 11/20–11/24 實查，其他是估計。點表頭的名稱，可以看那一版的細節。"))+
   sec("怎麼選",ul([
     "<b>最輕鬆、有雪山：瑞士版。</b>只換 2 次住處；不想經香港的話，改搭新航，價錢就和其他版本差不多",
     "<b>孩子玩最多、去回直飛：德南版。</b>一樣只換 2 次住處，火車、博物館、樂高樂園最多；要多請一天假",
+    "<b>想看多洛米蒂、又想吃好吃的：德義版。</b>山上住 3 晚、Bolzano 住 3 晚，都坐纜車不用爬山；第一天要坐很久的車",
     "<b>想逛城市：德奧版。</b>薩爾斯堡、Hallstatt、維也納，去回也都直飛",
     "<b>家人 A 版</b>建議照下面 A 版裡的改法，拿掉 Füssen 那一晚，否則前 3 天太趕"]))+
+  FOODSEC()+
   '<section id="vtabs"><h2>各版本細節</h2><div class="vtabs" role="tablist">'+tabs.map(t=>'<button type="button" class="vtab" role="tab" data-k="'+t[0]+'" aria-selected="'+(t[0]===cur)+'" onclick="cmpTab(\''+t[0]+'\')">'+t[1]+'</button>').join("")+'</div>'+
     tabs.map(t=>'<p class="vlead vpanel" data-k="'+t[0]+'"'+(t[0]===cur?'':' hidden')+'>'+t[3]+'</p>').join("")+'</section>'+
   tabs.map((t,i)=>'<div class="vpanel" data-k="'+t[0]+'"'+(t[0]===cur?'':' hidden')+'>'+bodies[i]+'</div>').join("");
