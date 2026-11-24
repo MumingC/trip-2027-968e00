@@ -693,7 +693,7 @@ D.de={"hero":{"src":"images/de-hero.jpg","credit":"Foto: JoachimKohler-HB / CC B
 // 2026-11-06 起：主行程定為瑞士＋德南，其他八個方案收進「其他方案」頁
 const NAV=[["home","瑞士版"],["cmp","其他版本"],["lindau","林道"],["luzern","琉森"],["ilk","少女峰"],["stay","住宿"],["cost","花費"],["fly","機票"],["mix","自己排"],["more","更多"]];
 const NAVMAP={de:"lindau",ch:"luzern",snow:"ilk",at:"cmp",w15:"cmp"};
-const OTHERS=["tirol","salzburg","slovenia","czech","poland","hungary","nl","portugal"];
+const OTHERS=["tirol","salzburg","slovenia","czech"];
 KIND.de="alp";KIND.fly="alp";KIND.more="alp";
 const tbl=(head,rows,cls)=>'<div class="tbl"><table class="'+(cls||"wr")+'"><thead><tr>'+head.map(h=>'<th>'+h+'</th>').join("")+'</tr></thead><tbody>'+rows.map(r=>'<tr'+(r.cls?' class="'+r.cls+'"':'')+'>'+(r.cells||r).map((c,i)=>'<td'+(i===r.total?' class="total"':'')+'>'+c+'</td>').join("")+'</tr>').join("")+'</tbody></table></div>';
 const ul=a=>'<ul class="ck">'+a.map(x=>'<li>'+x+'</li>').join("")+'</ul>';
@@ -874,9 +874,9 @@ D.fly={short:"機票",name:"從台灣飛過去",render(){
 
 // ---------- 其他方案 ----------
 D.more={short:"更多",name:"更多",render(){
-  heroPlain("延伸閱讀與收起來的方案","更多","主行程每一站的細節頁，以及原本比較過、先收起來的八個方案。",["細節頁","8 個方案"]);
-  return '<section><h2>細節頁</h2><div class="cards">'+[["ch","瑞士怎麼省","半價卡和 Travel Pass 比較、琉森和 Interlaken 的交通與吃"],["de","德南","林道周邊、交通票、天氣與人潮"],["snow","雪山比較","少女峰和馬特洪峰的比較與照片"]].map(c=>'<a class="card" href="#'+c[0]+'"><h3>'+c[1]+'</h3><p>'+c[2]+'</p></a>').join("")+'</div></section>'+sec("八個方案",'<div class="plans">'+OTHERS.map(k=>{const d=D[k];return '<details><summary><span class="pn">'+d.name+'</span><span class="pc">'+FAM+' '+d.cost+'</span></summary><div class="pd"><p>'+d.lead+'</p><p class="note">'+d.plan+'</p><div class="cols"><div><h3>優點</h3>'+ul(d.pros)+'</div><div><h3>要注意</h3>'+ul(d.cons)+'</div></div><p><a class="go" href="#'+k+'">看完整頁面：照片、地圖、短片 →</a></p></div></details>';}).join("")+'</div>')+
-  sec("原本的比較表",tbl(["方案","從林道交通","7 月天氣","物價",FAM+"總花費"],OTHERS.map(k=>{const d=D[k];return {cells:['<a href="#'+k+'">'+d.name+'</a>',d.from,d.weather,d.price,d.cost],total:4};}))+note("這些金額是 2026-11-05 的粗估，沒有再更新。"));
+  heroPlain("延伸閱讀與收起來的方案","更多","主行程每一站的細節頁，以及原本比較過的四個方案（不用在歐洲搭飛機的那幾個；日期已改成 7 月底，補上進出機場）。",["細節頁","4 個方案"]);
+  return '<section><h2>細節頁</h2><div class="cards">'+[["ch","瑞士怎麼省","半價卡和 Travel Pass 比較、琉森和 Interlaken 的交通與吃"],["de","德南","林道周邊、交通票、天氣與人潮"],["snow","雪山比較","少女峰和馬特洪峰的比較與照片"]].map(c=>'<a class="card" href="#'+c[0]+'"><h3>'+c[1]+'</h3><p>'+c[2]+'</p></a>').join("")+'</div></section>'+sec("四個方案",'<div class="plans">'+OTHERS.map(k=>{const d=D[k];return '<details><summary><span class="pn">'+d.name+'</span><span class="pc">'+FAM+' '+d.cost+'</span></summary><div class="pd"><p>'+d.lead+'</p><p class="note">'+d.plan+'</p><div class="cols"><div><h3>優點</h3>'+ul(d.pros)+'</div><div><h3>要注意</h3>'+ul(d.cons)+'</div></div><p><a class="go" href="#'+k+'">看完整頁面：照片、地圖、短片 →</a></p></div></details>';}).join("")+'</div>')+
+  sec("原本的比較表",tbl(["方案","從林道交通","7 月天氣","物價",FAM+"總花費"],OTHERS.map(k=>{const d=D[k];return {cells:['<a href="#'+k+'">'+d.name+'</a>',d.from,d.weather,d.price,d.cost],total:4};}))+note("2026-11-24 改成 7 月底的日期並補上進出機場；機票是實查，其他是粗估。"));
 }};
 
 // ---------- 總覽（主行程，2026-11-11 起 14 天少女峰版） ----------
@@ -909,7 +909,7 @@ function sightsSection(){
 }
 function home(){
   heroPlain("2027 年 7 月底・14 天・11 晚（林道 4、琉森 4、少女峰 3）・蘇黎世進出","瑞士＋德南家庭旅行","先在林道住 4 晚，再到琉森住 4 晚玩火車和湖，最後到少女峰山下住 3 晚，從蘇黎世回台。",["7/28 林道兒童節","蘇黎世進出","換 2 次住處",FAM+"約 35–57 萬"],SN["sn-1"]);
-  return '<section><h2>三站</h2><div class="cards seg3">'+[["lindau","1. 林道 4 晚","7/26–7/30・兒童節、Pfänder、遊戲樂園、新天鵝堡"],["luzern","2. 琉森 4 晚","7/30–8/3・交通博物館、Rigi、Pilatus"],["ilk","3. 少女峰一帶 3 晚","8/3–8/6・瀑布谷、少女峰車站、First"]].map(c=>'<a class="card" href="#'+c[0]+'"><h3>'+c[1]+'</h3><p>'+c[2]+'</p></a>').join("")+'</div>'+note("每一站有自己的頁面：每日安排、景點地圖、住宿區域地圖、景點照片、住宿選擇和花費。其他走法（德南版、德奧版、家人提的兩版）和比較表，在<a class=\"go\" href=\"#cmp\">其他版本</a>頁。")+'</section>'+sec("小孩子適合嗎？",'<p><b>大部分都適合，3 歲也可以。</b>這趟上山都是坐纜車、齒軌火車或船，沒有安排長程健行；有年齡、身高限制的只有少數刺激項目，集中在少女峰那一站。</p>'+tbl(["站","3 歲","8、12 歲"],[
+  return '<section><h2>三站</h2><div class="cards seg3">'+[["lindau","1. 林道 4 晚","7/26–7/30・兒童節、Pfänder、遊戲樂園、新天鵝堡"],["luzern","2. 琉森 4 晚","7/30–8/3・交通博物館、Rigi、Pilatus"],["ilk","3. 少女峰一帶 3 晚","8/3–8/6・瀑布谷、少女峰車站、First"]].map(c=>'<a class="card" href="#'+c[0]+'"><h3>'+c[1]+'</h3><p>'+c[2]+'</p></a>').join("")+'</div>'+note("每一站有自己的頁面：每日安排、景點地圖、住宿區域地圖、景點照片、住宿選擇和花費。其他走法（德南版、德奧版、家人提的 A 版）和比較表，在<a class=\"go\" href=\"#cmp\">其他版本</a>頁。")+'</section>'+sec("小孩子適合嗎？",'<p><b>大部分都適合，3 歲也可以。</b>這趟上山都是坐纜車、齒軌火車或船，沒有安排長程健行；有年齡、身高限制的只有少數刺激項目，集中在少女峰那一站。</p>'+tbl(["站","3 歲","8、12 歲"],[
     ['<a class="go" href="#lindau">林道</a>',"兒童節遊行、遊戲樂園（3 歲最適合）、Pfänder 纜車都可以；新天鵝堡上坡要背帶，城堡裡不能推推車","都可以；12 歲可能嫌遊戲樂園太幼稚"],
     ['<a class="go" href="#luzern">琉森</a>',"交通博物館、遊船、Rigi 齒軌火車都可以","交通博物館是全程最適合小孩的一站，兩個愛火車的一定喜歡"],
     ['<a class="go" href="#ilk">少女峰</a>',"纜車、火車、Bort 遊樂場、瀑布谷散步可以；<b>Trümmelbach 山洞瀑布未滿 4 歲不能進</b>；上少女峰車站要注意高山反應","First 的滑翔索、卡丁車要 130–135 公分，8 歲大概還不夠，12 歲可以"]],"wr")+
@@ -1664,7 +1664,7 @@ function W15A(){
     {cells:["合計","約 35–57 萬","約 47–64 萬"],total:2}])+
     note("15 天版的合計是用瑞士版的地面花費，加上多一天的吃住和多幾段火車估的；機票是實查。主要多在機票：直飛加土航比國泰經香港，每位大人多約 2.3 萬。"));
 }
-// ---------- 其他版本（2026-11-24）：比較表＋德南版、德奧版、家人 A／B 版都在同一頁 ----------
+// ---------- 其他版本（2026-11-24）：比較表＋德南版、德奧版、家人 A 版都在同一頁（B 版 11/24 拿掉） ----------
 KIND.cmp="alp";
 let CMPTAB="de";
 function cmpTab(k){
@@ -1726,34 +1726,32 @@ function DSBODY(){
 D.cmp={short:"其他版本",name:"其他版本",render(){
   const tabs=[["de","德南版",DSBODY,"慕尼黑進出・林道 4、Garmisch 3、慕尼黑 5・去回都直飛"],
               ["at","德奧版",ATBODY,"慕尼黑進、維也納出・林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3・去回都直飛"],
-              ["wa","家人 A 版",W15A,"慕尼黑進、蘇黎世出・後半段和瑞士版一樣"],
-              ["wb","家人 B 版",W15B,"慕尼黑進、威尼斯出・多洛米蒂、全程租車"]];
+              ["wa","家人 A 版",W15A,"慕尼黑進、蘇黎世出・後半段和瑞士版一樣"]];;
   const bodies=tabs.map(t=>t[2]());   // 先產生內容（會改到 hero），最後再設這頁的 hero
   const cur=tabs.some(t=>t[0]===CMPTAB)?CMPTAB:"de"; CMPTAB="de";
-  heroPlain("2027 年 7 月底・瑞士版以外的四個走法","其他版本","德南版、德奧版，加上家人提的 A、B 兩版。先看比較表，下面再切換看每一版的行程、機票和住宿。金額都是一家五口。",["4 個版本","約 40–64 萬"],D.de.hero);
+  heroPlain("2027 年 7 月底・瑞士版以外的三個走法","其他版本","德南版、德奧版，加上家人提的 A 版。先看比較表，下面再切換看每一版的行程、機票和住宿。金額都是一家五口。",["3 個版本","約 40–64 萬"],D.de.hero);
   const g=(k,t)=>'<a class="go" href="javascript:cmpGo(\''+k+'\')">'+t+'</a>';
   if(!document.getElementById("vtab-css")){const st=document.createElement("style");st.id="vtab-css";st.textContent='.vtabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 4px;scroll-margin-top:72px}#vtabs{scroll-margin-top:72px}.vtab{font:inherit;font-weight:700;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}.vtab[aria-selected="true"]{background:var(--lake);border-color:var(--lake);color:var(--surface)}.vlead{color:var(--muted);margin:6px 0 0}';document.head.appendChild(st);}
-  return sec("一張表看差異",tbl(["",'<a class="go" href="#home">瑞士版</a>（主行程）',g("de","德南版"),g("at","德奧版"),g("wa","家人 A 版"),g("wb","家人 B 版")],[
-    ["天數","14 天・11 晚","15 天・12 晚","14 天・11 晚","15 天・12 晚","16 天・13 晚"],
-    ["日期（台灣）","7/25–8/7","7/25–8/8","7/25–8/7","7/25–8/8","7/24–8/8"],
-    ["進出","蘇黎世進出","慕尼黑進出","慕尼黑進、維也納出","慕尼黑進、蘇黎世出","慕尼黑進、威尼斯出"],
-    ["住哪裡","林道 4、琉森 4、少女峰 3","林道 4、Garmisch 3、慕尼黑 5","林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3","慕尼黑 1、Füssen 1、林道 2、琉森 4、Interlaken 3、蘇黎世 1","慕尼黑 2、林道 3、Füssen 2、Ortisei 4、威尼斯 2"],
-    ["換住處","<b>2 次</b>","<b>2 次</b>","3 次","5 次","4 次"],
-    ["7/28 兒童節","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住 Füssen，清晨要趕路","前一晚住林道"],
-    ["新天鵝堡","從林道當天來回","去 Garmisch 路上順路","從林道當天來回","住 Füssen 但排不進去","有一整天"],
-    ["主要玩什麼","交通博物館、Rigi、Pilatus、少女峰的齒軌火車","Zugspitze 齒軌火車、德意志博物館、紐倫堡鐵道博物館、樂高樂園","Pfänder、薩爾斯堡老城、Schafberg 齒軌火車、湖區、維也納","前段慕尼黑、薩爾斯堡；後段和瑞士版一樣","德意志博物館、多洛米蒂纜車與高山草原、威尼斯"],
-    ["交通","火車","火車；林道到 Garmisch 租車一天","火車；租車兩天","火車；7/27 一天跑三個地方","全程租車，總共開約 11–14 小時"],
-    ["機票","要轉機：國泰經香港約 14 萬、新航經新加坡約 21 萬","<b>去回都直飛</b>，約 22 萬","<b>去回都直飛</b>，約 23–26 萬","長榮直飛去、土航轉機回，約 24 萬","土航轉機來回，約 18.5 萬"],
-    ["住宿","11 晚約 9–19 萬","12 晚約 8–14 萬","11 晚約 8–13 萬","前段 3.0–5.4 萬，琉森和 Interlaken 同瑞士版","13 晚約 12–20 萬（看 Ortisei 住哪裡）"],
-    ["3 歲","大部分可以；少女峰有幾項有年齡、身高限制","樂高樂園、遊戲樂園最適合；峽谷步道推車不能進","Hallstatt 鹽礦未滿 4 歲不能進","同瑞士版，但前 3 天很累","威尼斯橋多台階，推車難推"],
-    ["最大的問題","瑞士物價高；不經香港就要搭新航","沒有瑞士的湖和雪山；只能 8/7 回","沒有瑞士的大山","前 3 天太趕","跨國還車費（可能 3–4 萬）、Ortisei 住宿貴"],
-    ["<b>合計</b>","約 35–57 萬（改搭新航約 42–58 萬）","約 40–50 萬","約 40–53 萬","約 47–64 萬","約 45–60 萬"]])+
+  return sec("一張表看差異",tbl(["",'<a class="go" href="#home">瑞士版</a>（主行程）',g("de","德南版"),g("at","德奧版"),g("wa","家人 A 版")],[
+    ["天數","14 天・11 晚","15 天・12 晚","14 天・11 晚","15 天・12 晚"],
+    ["日期（台灣）","7/25–8/7","7/25–8/8","7/25–8/7","7/25–8/8"],
+    ["進出","蘇黎世進出","慕尼黑進出","慕尼黑進、維也納出","慕尼黑進、蘇黎世出"],
+    ["住哪裡","林道 4、琉森 4、少女峰 3","林道 4、Garmisch 3、慕尼黑 5","林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3","慕尼黑 1、Füssen 1、林道 2、琉森 4、Interlaken 3、蘇黎世 1"],
+    ["換住處","<b>2 次</b>","<b>2 次</b>","3 次","5 次"],
+    ["7/28 兒童節","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住 Füssen，清晨要趕路"],
+    ["新天鵝堡","從林道當天來回","去 Garmisch 路上順路","從林道當天來回","住 Füssen 但排不進去"],
+    ["主要玩什麼","交通博物館、Rigi、Pilatus、少女峰的齒軌火車","Zugspitze 齒軌火車、德意志博物館、紐倫堡鐵道博物館、樂高樂園","Pfänder、薩爾斯堡老城、Schafberg 齒軌火車、湖區、維也納","前段慕尼黑、薩爾斯堡；後段和瑞士版一樣"],
+    ["交通","火車","火車；林道到 Garmisch 租車一天","火車；租車兩天","火車；7/27 一天跑三個地方"],
+    ["機票","要轉機：國泰經香港約 14 萬、新航經新加坡約 21 萬","<b>去回都直飛</b>，約 22 萬","<b>去回都直飛</b>，約 23–26 萬","長榮直飛去、土航轉機回，約 24 萬"],
+    ["住宿","11 晚約 9–19 萬","12 晚約 8–14 萬","11 晚約 8–13 萬","前段 3.0–5.4 萬，琉森和 Interlaken 同瑞士版"],
+    ["3 歲","大部分可以；少女峰有幾項有年齡、身高限制","樂高樂園、遊戲樂園最適合；峽谷步道推車不能進","Hallstatt 鹽礦未滿 4 歲不能進","同瑞士版，但前 3 天很累"],
+    ["最大的問題","瑞士物價高；不經香港就要搭新航","沒有瑞士的湖和雪山；只能 8/7 回","沒有瑞士的大山","前 3 天太趕"],
+    ["<b>合計</b>","約 35–57 萬（改搭新航約 42–58 萬）","約 40–50 萬","約 40–53 萬","約 47–64 萬"]])+
     note("機票和住宿是 11/20–11/24 實查，其他是估計。點表頭的名稱，可以看那一版的細節。"))+
   sec("怎麼選",ul([
     "<b>最輕鬆、有雪山：瑞士版。</b>只換 2 次住處；不想經香港的話，改搭新航，價錢就和其他版本差不多",
     "<b>孩子玩最多、去回直飛：德南版。</b>一樣只換 2 次住處，火車、博物館、樂高樂園最多；要多請一天假",
     "<b>想逛城市：德奧版。</b>薩爾斯堡、Hallstatt、維也納，去回也都直飛",
-    "<b>想看多洛米蒂和威尼斯、願意開車：家人 B 版。</b>機票最便宜，訂之前先查跨國還車費",
     "<b>家人 A 版</b>建議照下面 A 版裡的改法，拿掉 Füssen 那一晚，否則前 3 天太趕"]))+
   '<section id="vtabs"><h2>各版本細節</h2><div class="vtabs" role="tablist">'+tabs.map(t=>'<button type="button" class="vtab" role="tab" data-k="'+t[0]+'" aria-selected="'+(t[0]===cur)+'" onclick="cmpTab(\''+t[0]+'\')">'+t[1]+'</button>').join("")+'</div>'+
     tabs.map(t=>'<p class="vlead vpanel" data-k="'+t[0]+'"'+(t[0]===cur?'':' hidden')+'>'+t[3]+'</p>').join("")+'</section>'+
@@ -1763,6 +1761,105 @@ D.cmp={short:"其他版本",name:"其他版本",render(){
 D.at={short:"德奧版",name:"德奧版",render(){CMPTAB="at";return D.cmp.render();}};
 D.w15={short:"家人提案",name:"家人提案",render(){CMPTAB="wa";return D.cmp.render();}};
 KIND.w15="alp";
+// ---------- 舊方案改版（2026-11-24）：拿掉要搭飛機的四個；其餘四個補上進出機場、改成 7 月底日期 ----------
+P.vie=[48.11,16.57,"維也納機場"];
+const ALT_IN=[["7/25（日）","飛機上","晚上 23:25 長榮從桃園直飛慕尼黑"],
+  ["7/26（一）","林道","清晨 07:35 到慕尼黑，火車約 2.5 小時到林道，休息倒時差"],
+  ["7/27（二）","林道","拉文斯堡遊戲樂園"],
+  ["7/28（三）","林道","<b>林道兒童節</b>遊行；下午 Pfänder 纜車"],
+  ["7/29（四）","林道","新天鵝堡當天來回（租車單程約 1.5 小時），或湖邊休息"]];
+const ALT_OUT_MUC=[["8/7（六）","飛機上","12:00 長榮從慕尼黑直飛"],["8/8（日）","—","清晨 06:35 到桃園"]];
+const ALT_OUT_VIE=[["8/6（五）","飛機上","機場快線約 16 分鐘；11:15 華航從維也納直飛"],["8/7（六）","—","清晨 05:30 到桃園"]];
+const ALT_FLY={
+  muc:["慕尼黑進出（長榮直飛來回）","每位大人 48,849 元，一家約 22 萬（2026-11-24 實查）。慕尼黑回台的直飛 8/6 沒有、8/7 有，所以是 15 天。"],
+  vie:["慕尼黑進（長榮直飛）、維也納出（華航直飛）","每位大人 56,590 元，一家約 25.5 萬（2026-11-23 實查，和德奧版同一組機票）。"]};
+function altExtra(days,fly,rows,cost,costNote){
+  const f=ALT_FLY[fly];
+  return sec("每日行程（"+days+"）",tbl(["日期","住","安排"],ALT_IN.concat(rows,fly==="muc"?ALT_OUT_MUC:ALT_OUT_VIE))+
+      note("林道 4 天和瑞士版一樣，細節看<a class=\"go\" href=\"#lindau\">林道</a>頁。火車和開車時間是一般估計，訂票前要再查時刻表。"))+
+    sec("進出與機票",'<p><b>'+f[0]+'</b>：'+f[1]+'</p>'+note("全程在歐洲不搭飛機，城市之間坐火車、公車或開車。"))+
+    sec("預估花費（"+FAM+"、"+days+"）",tbl(["項目","金額","說明"],cost.concat([{cells:["合計",costNote,""],total:1}]))+
+      note("機票和林道住宿是實查；其他是粗估，還沒逐項查。"));
+}
+Object.assign(D.tirol,{
+  plan:"慕尼黑進出・林道 4 晚 → Zillertal 山谷 6 晚 → 慕尼黑 2 晚（7/25–8/8，15 天・12 晚）",
+  from:"火車約 4 小時（經 Innsbruck、Jenbach，最後一段坐 Zillertal 小火車）",
+  cost:"約 38–47 萬",c:null,
+  tags:["像瑞士但便宜","涼爽","慕尼黑進出"],
+  extra:altExtra("15 天・12 晚","muc",[
+    ["7/30（五）","Zillertal","火車到 Innsbruck，換車到 Jenbach，再坐 Zillertal 鐵道到 Mayrhofen 一帶（夏天有蒸汽火車班次），約 4 小時"],
+    ["7/31（六）","Zillertal","Ahorn 或 Penken 纜車上山，山上兒童遊樂場"],
+    ["8/1（日）","Zillertal","夏季滑道（Arena Coaster）、湖邊玩水"],
+    ["8/2（一）","Zillertal","因斯布魯克老城一日遊（火車約 1 小時）"],
+    ["8/3（二）","Zillertal","施華洛世奇水晶世界（Wattens），花園有兒童遊樂場"],
+    ["8/4（三）","Zillertal","天氣備用日；或開車去 Krimml 瀑布"],
+    ["8/5（四）","慕尼黑","火車約 2.5–3 小時到慕尼黑"],
+    ["8/6（五）","慕尼黑","德意志博物館"]],[
+    ["機票","約 22 萬","長榮直飛來回（實查）"],
+    ["住宿 12 晚","7–12 萬","林道 4 晚 2.9–6.3 萬（實查）＋Zillertal 6 晚約 3–5 萬＋慕尼黑 2 晚約 1 萬"],
+    ["餐飲","5–6 萬","有廚房的公寓自己煮"],
+    ["交通與門票","3–4.5 萬","很多 Zillertal 住宿附 Activcard（纜車、公車、小火車），要確認"],
+    ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"]],"約 38–47 萬")});
+Object.assign(D.salzburg,{
+  plan:"慕尼黑進出・林道 4 晚 → 薩爾斯堡 3 晚 → 湖區 3 晚 → 慕尼黑 2 晚（7/25–8/8，15 天・12 晚）",
+  from:"火車約 4.5 小時（Bregenz 換奧地利 Railjet，經 Innsbruck）",
+  cost:"約 40–50 萬",c:null,
+  extra:altExtra("15 天・12 晚","muc",[
+    ["7/30（五）","薩爾斯堡","火車約 4.5 小時到薩爾斯堡"],
+    ["7/31（六）","薩爾斯堡","老城、米拉貝爾花園、城堡纜車"],
+    ["8/1（日）","薩爾斯堡","Hellbrunn 噴泉宮（會被噴濕，帶替換衣服）"],
+    ["8/2（一）","湖區","公車約 1 小時到 Wolfgangsee（St. Gilgen 或 St. Wolfgang）"],
+    ["8/3（二）","湖區","遊船＋Schafberg 齒軌火車"],
+    ["8/4（三）","湖區","Hallstatt 一日遊（鹽礦未滿 4 歲不能進）"],
+    ["8/5（四）","慕尼黑","公車回薩爾斯堡，再坐火車約 1.5–2 小時到慕尼黑"],
+    ["8/6（五）","慕尼黑","德意志博物館"]],[
+    ["機票","約 22 萬","長榮直飛來回（實查）"],
+    ["住宿 12 晚","8.5–14.5 萬","林道 2.9–6.3 萬、薩爾斯堡 3 晚 2.6–3.6 萬（實查）＋湖區 3 晚約 2–3.5 萬＋慕尼黑 2 晚約 1 萬"],
+    ["餐飲","5–6 萬",""],
+    ["交通與門票","4–5.5 萬","火車、公車、Schafberg、Hellbrunn、遊船"],
+    ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"]],"約 40–50 萬")});
+Object.assign(D.slovenia,{
+  plan:"慕尼黑進、維也納出・林道 4 晚 → Zell am See 3 晚 → 布雷德湖 3 晚 → 維也納 1 晚（7/25–8/7，14 天・11 晚）",
+  from:"火車約 4.5 小時到 Zell am See（經 Innsbruck）",
+  cost:"約 42–51 萬",c:null,
+  tags:["便宜","湖光山色","慕尼黑進、維也納出"],
+  cons:["8/5 從布雷德湖到維也納要坐一整天車（火車約 6 小時、開車約 4 小時）","布雷德湖 8 月人潮多","換 3 次住處"],
+  extra:altExtra("14 天・11 晚","vie",[
+    ["7/30（五）","Zell am See","火車約 4.5 小時（經 Innsbruck、Wörgl）"],
+    ["7/31（六）","Zell am See","Kitzsteinhorn 冰河纜車，夏天也有雪"],
+    ["8/1（日）","Zell am See","湖邊玩水、遊船；或 Schmittenhöhe 纜車"],
+    ["8/2（一）","布雷德湖","火車經 Villach、Jesenice 到 Lesce-Bled，約 4–4.5 小時"],
+    ["8/3（二）","布雷德湖","湖邊散步、坐手划船 Pletna 上湖中小島；文特加峽谷"],
+    ["8/4（三）","布雷德湖","盧比安納老城＋波斯托伊納鐘乳石洞（洞裡坐小火車進去）；開車或參加一日團"],
+    ["8/5（四）","維也納","火車約 6 小時（經 Villach），或開車約 4 小時；住機場附近或市區"]],[
+    ["機票","約 25.5 萬","慕尼黑進、維也納出，長榮＋華航直飛（實查）"],
+    ["住宿 11 晚","7.5–13 萬","林道 2.9–6.3 萬（實查）＋Zell am See 3 晚約 2–3 萬＋布雷德湖 3 晚約 2–3 萬＋維也納 1 晚約 0.5 萬"],
+    ["餐飲","4–5 萬","斯洛維尼亞外食便宜"],
+    ["交通與門票","4–5.5 萬","長途火車、冰河纜車、鐘乳石洞、盧比安納一日遊"],
+    ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"]],"約 42–51 萬")});
+Object.assign(D.czech,{
+  plan:"慕尼黑進、維也納出・林道 4 晚 → 布拉格 4 晚 → 契斯基庫倫洛夫 2 晚 → 維也納 1 晚（7/25–8/7，14 天・11 晚）",
+  from:"火車約 7–8 小時（在慕尼黑換直達布拉格的火車）；或慕尼黑轉長途巴士",
+  cost:"約 39–48 萬",c:null,
+  cons:["7/30 從林道到布拉格要坐一整天車","石板路多，建議帶輕便推車或背帶","換 3 次住處"],
+  extra:altExtra("14 天・11 晚","vie",[
+    ["7/30（五）","布拉格","火車到慕尼黑（約 2.5 小時），換直達布拉格的火車（約 5.5 小時）"],
+    ["7/31（六）","布拉格","布拉格城堡、查理大橋"],
+    ["8/1（日）","布拉格","鐵道模型展示館（Království železnic）、老城廣場天文鐘"],
+    ["8/2（一）","布拉格","布拉格動物園（坐船沿河過去）"],
+    ["8/3（二）","庫倫洛夫","火車或巴士約 3 小時"],
+    ["8/4（三）","庫倫洛夫","城堡、河邊小鎮散步"],
+    ["8/5（四）","維也納","接駁小巴約 3 小時到維也納"]],[
+    ["機票","約 25.5 萬","慕尼黑進、維也納出，長榮＋華航直飛（實查）"],
+    ["住宿 11 晚","6–11 萬","林道 2.9–6.3 萬（實查）＋布拉格 4 晚約 2–3 萬＋庫倫洛夫 2 晚約 1–1.5 萬＋維也納 1 晚約 0.5 萬"],
+    ["餐飲","4–5 萬","捷克外食便宜"],
+    ["交通與門票","3–4 萬","長途火車、接駁小巴、城堡、博物館、動物園"],
+    ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"]],"約 39–48 萬")});
+Object.assign(ROUTE.tirol,{stops:[["lindau","4 晚"],["ziller","6 晚"],["munich","2 晚"]],ends:["muc"],endText:"・抵達與回台",legs:[["muc","lindau","land"],["lindau","ziller","land"],["ziller","munich","land"],["munich","muc","land"]],note:"慕尼黑機場進出；Zillertal 一帶是示意位置。"});
+Object.assign(ROUTE.salzburg,{stops:[["lindau","4 晚"],["sbg","3 晚"],["ischl","3 晚","hollow"],["munich","2 晚"]],ends:["muc"],endText:"・抵達與回台",legs:[["muc","lindau","land"],["lindau","sbg","land"],["sbg","ischl","land"],["ischl","munich","land"],["munich","muc","land"]],note:"慕尼黑機場進出；湖區（Wolfgangsee）位置是示意。"});
+Object.assign(ROUTE.slovenia,{stops:[["lindau","4 晚"],["zell","3 晚"],["bled","3 晚"]],via:["muc"],ends:["vie"],legs:[["muc","lindau","land"],["lindau","zell","land"],["zell","bled","land"],["bled","vie","land"]],note:"慕尼黑機場進、維也納機場出（維也納住 1 晚）；盧比安納和鐘乳石洞是從布雷德湖當天來回。",local:{title:"布雷德湖一帶",stops:["bled"],spots:["vintgar","lju","postojna"]}});
+P.zell=[47.324,12.794,"Zell am See"];
+Object.assign(ROUTE.czech,{stops:[["lindau","4 晚"],["prg","4 晚"],["krumlov","2 晚"]],via:["muc"],ends:["vie"],back:null,legs:[["muc","lindau","land"],["lindau","prg","land"],["prg","krumlov","land"],["krumlov","vie","land"]],note:"慕尼黑機場進、維也納機場出（維也納住 1 晚）。7/30 林道到布拉格會經過慕尼黑換車。"});
 function route(){
   let k=(location.hash||"#home").slice(1); if(!D[k]) k="home";
   document.getElementById("nav").innerHTML=navHTML(k);
