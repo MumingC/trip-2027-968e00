@@ -1748,6 +1748,20 @@ function ZILSIGHTS(){
     ["Ritten 百年窄軌小火車","8/4","從 Bolzano 坐纜車上去再換小火車",SN["di-6"],"Rittner Bahn Oberbozen"],
     ["Bolzano Piazza delle Erbe 市集","8/5","水果、起司、Speck；週六只開到下午 1 點",SN["di-4"],"Piazza delle Erbe Bolzano"]]);
 }
+// 德義版（威尼斯回）：Bolzano 租車、威尼斯還車（2026-11-25）
+function DVCAR(){
+  return sec("另一種交通：Bolzano 租車、威尼斯還車",tbl(["日期","改成"],[
+    ["7/31–8/2","Bolzano 3 晚不用車：老城走路就好，Merano、Brixen 坐火車"],
+    {cells:["8/3（二）","早上在 Bolzano 取車，開到 Ortisei 約 50 分鐘；下午上 Seiser Alm"],cls:"rec"},
+    ["8/4（三）","Seceda；有車的話也可以改去 Tre Cime 或 Braies 湖（單程約 1.5–2 小時）"],
+    {cells:["8/5（四）","Ortisei 開到威尼斯 Piazzale Roma 還車，走高速公路約 3–3.5 小時（繞 Cortina 走山路約 4 小時）；還完車走路就到水上巴士站"],cls:"rec"}])+
+    ul(["在義大利借、在義大利還，只要付國內的甲地乙地還車費，比跨國便宜很多；金額要用實際日期查（未實查）",
+      "威尼斯還車地點：Piazzale Roma 有 Sixt（每天 8:00–19:00）、Europcar、Hertz，Avis 在旁邊的 Tronchetto 停車場；Europcar、Hertz、Avis 週末有的只開到中午，時間是比價網站上的資料，訂之前要確認",
+      "5 個人要租 7 人座或大一點的旅行車；3 歲、8 歲都要兒童座椅，租車時加訂",
+      "Bolzano 老城有 ZTL 限行區，取車後直接出城；另外要付義大利高速公路費、油錢、Ortisei 停車費",
+      "省下的是 Ortisei 到威尼斯的公車＋火車（要換 2 次車、約 4–4.5 小時），也不用拖行李轉車"])+
+    note("車程和費用都是估計；租車價格要用實際日期在 Sixt 等租車網站查。"));
+}
 function DICAR(){
   return sec("另一種交通：林道租車、慕尼黑還車（不住 Innsbruck）",tbl(["日期","改成"],[
     {cells:["7/30（五）","林道取車，直接開到 Ortisei 約 4–4.5 小時（經 Innsbruck、Brenner），一天就到，不用住 Innsbruck，Ortisei 可以住 3 晚"],cls:"rec"},
@@ -1797,9 +1811,9 @@ function DIBODY(v){
     note("Ortisei 和 Bolzano 都在義大利的南提洛，德語、義語都通。火車與公車時間已對照 2026 年的時刻表（見下面「實查結果」），Innsbruck 那兩段是估計；2027 年的時刻表還沒定案，訂票前用 ÖBB／DB 再確認。"+(V?"Ortisei 到威尼斯、Rialto 市集的營業日沒有實查。土航回程另有晚上 20:00 起飛的班次（8/8 下午 17:55 到桃園），可以在威尼斯多玩一個白天。":""))+
     ul(["為什麼住 Innsbruck：林道到 Ortisei 一天坐完要 6.5–7 小時，拆成兩天，每天約 3 小時；Innsbruck 老城也值得逛"+(V?"":"。不想多換一次住處，可以租車（見下面）"),
       "為什麼山上只住 2 晚：Seiser Alm、Seceda 都是坐纜車上去，各半天到一天就看到多洛米蒂最有名的景色；Ortisei 8 月很貴，吃和逛又都在 Bolzano，所以 Bolzano 住 3 晚",
-      V?"為什麼先 Bolzano 再 Ortisei：從 Innsbruck 坐火車直達 Bolzano，不用拖行李轉公車上山；最後再從山上直接往威尼斯":"為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"]))+
+      V?"為什麼先 Bolzano 再 Ortisei：從 Innsbruck 坐火車直達 Bolzano，不用拖行李轉公車上山；最後再從山上直接往威尼斯。山上那兩天想要有車，可以在 Bolzano 租車、威尼斯還車（見下面）":"為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"]))+
   DISIGHTS(v)+FOODPIC(V?"vven":"vdi")+
-  (V?"":DICAR())+
+  (V?DVCAR():DICAR())+
   DICHECK(v)+
   (V?sec("機票（2026-11-25 用 Google 機票查）",tbl(["走法","去程","回程","整趟每位大人"],[
     {cells:["土航","桃園 → 伊斯坦堡 → 慕尼黑","威尼斯 → 伊斯坦堡 → 桃園","<b>39,637 元</b>"],cls:"rec"},
