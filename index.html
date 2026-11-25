@@ -1755,12 +1755,28 @@ function DVCAR(){
     {cells:["8/3（二）","早上在 Bolzano 取車，開到 Ortisei 約 50 分鐘；下午上 Seiser Alm"],cls:"rec"},
     ["8/4（三）","Seceda；有車的話也可以改去 Tre Cime 或 Braies 湖（單程約 1.5–2 小時）"],
     {cells:["8/5（四）","Ortisei 開到威尼斯 Piazzale Roma 還車，走高速公路約 3–3.5 小時（繞 Cortina 走山路約 4 小時）；還完車走路就到水上巴士站"],cls:"rec"}])+
-    ul(["在義大利借、在義大利還，只要付國內的甲地乙地還車費，比跨國便宜很多；金額要用實際日期查（未實查）",
+    ul(["2026-11-25 用 KAYAK 實查（8/3 早上 9 點取車、8/5 還車，Europcar Bolzano 機場，Fiat Tipo 旅行車或同級）：在 Bolzano 還 282 美元，開到威尼斯機場還 366 美元，<b>只差約 84 美元（約 2,700 元）</b>，跟一家人坐火車從 Bolzano 到威尼斯的車票差不多，所以建議在威尼斯還",
+      "Bolzano 車站旁也有租車點，同級車在 Bolzano 還 337 美元、在威尼斯機場還 497 美元；KAYAK 沒有列 7 人座，5 人座旅行車要放 2 張兒童座椅，後座會比較擠",
       "威尼斯還車地點：Piazzale Roma 有 Sixt（每天 8:00–19:00）、Europcar、Hertz，Avis 在旁邊的 Tronchetto 停車場；Europcar、Hertz、Avis 週末有的只開到中午，時間是比價網站上的資料，訂之前要確認",
       "5 個人要租 7 人座或大一點的旅行車；3 歲、8 歲都要兒童座椅，租車時加訂",
       "Bolzano 老城有 ZTL 限行區，取車後直接出城；另外要付義大利高速公路費、油錢、Ortisei 停車費",
       "省下的是 Ortisei 到威尼斯的公車＋火車（要換 2 次車、約 4–4.5 小時），也不用拖行李轉車"])+
     note("車程和費用都是估計；租車價格要用實際日期在 Sixt 等租車網站查。"));
+}
+// 太太看到的兩個孩子行程：Panaraida、Funbob（2026-11-25）
+function DIKIDS(v){
+  const V=v==="vce",s=(t,u)=>'<a href="'+u+'" target="_blank" rel="noopener">'+t+' ↗</a>';
+  return sec("太太看到的三個備選",tbl(["","在哪裡、玩什麼","怎麼排","來源（2026-11-25 查）"],[
+    {cells:["<b>"+gmq("Panaraida 冒險步道","Panaraida Monte Pana")+"</b>","Santa Cristina 的 Monte Pana，就在 Ortisei 隔壁村。12 個用木頭等自然材料做的關卡：木頭小馬、玩水區（可以野餐）、樹屋、大鞦韆、溜滑梯、坐籃子的小纜車、迷宮、尋寶遊戲；2024 年拿到南提洛「年度家庭健行地點」。3 歲到 12 歲都能玩",
+      (V?"排在 8/4 下午，或用來代替 Seceda":"排在 7/31 下午（到 Ortisei 之後），或 8/2 早上代替 Seceda")+"。從 Ortisei 坐公車到 Santa Cristina 再上 Monte Pana；交通方式、步道長度和開放時間官網沒寫，未實查",
+      s("valgardena.it 介紹","https://www.valgardena.it/it/vacanze-estive-dolomiti/famiglie/panaraida/")+"、"+s("得獎消息","https://www.valgardena.it/it/news-val-gardena/dettaglio/la-panaraida-vince-il-premio-destinazione-escursionistica-per-famiglie-dellanno-in-alto-adige/")],cls:"rec"},
+    ["<b>"+gmq("Funbob 山地滑車","Funbob Haunold Innichen")+"</b>","San Candido（Innichen）的 Haunold 山，靠近 Tre Cime。1,750 公尺長、架在鋁軌上的滑車，南提洛最長的夏季滑車。2026 年 5/23–10/18 開，旺季 9:00–18:30；一趟大人 21.5 歐、18 歲以下 15 歐；未滿 3 歲不能坐（2025 年的規定）",
+      "離 Ortisei 開車約 1.5 小時（估計），沒有車很難排。"+(V?"租車的話可以排在 8/4，跟 Tre Cime 同一天，代替 Seceda":"租車的話可以跟 Tre Cime 排同一天，代替 Seceda；坐火車、公車的排法就不建議"),
+      s("Drei Zinnen 官網","https://www.dreizinnen.com/en/the-experience/in-summer/funbob.html")],
+    ["<b>"+gmq("Braies 湖（Lago di Braies）","Lago di Braies")+"</b>","Val Pusteria 的 Prags 山谷，綠色湖水、木船，是多洛米蒂最有名的湖。環湖步道約 3.5 公里、大致平坦（估計 1 小時多），可以租木船划。<b>2026 年 7/1–9/15 早上 9 點到下午 4 點，開車進山谷要先上網預約停車位</b>（6 月開放預約），或坐要預約的接駁公車 439（從 Monguelfo 出發）",
+      "離 Ortisei 開車約 1.5 小時（估計）；Funbob 在同一條山谷再往東約 30 分鐘，可以排同一天。"+(V?"租車的話排在 8/4，代替 Seceda":"租車的話代替 Seceda 那天")+"。坐大眾運輸要火車轉火車再轉預約公車，單程 2.5–3 小時（估計），不建議",
+      s("預約停車（P4）","https://www.pragsparking.mts-online.com/en")+"、"+s("整理文章","https://www.in-moments.com/dolomites/how-to-visit-lago-di-braies")+"（非官方；2027 年規定要再查 prags.bz）"]])+
+    note("三個地方都還沒排進上面的每日行程，看要不要換掉哪一天。Braies 湖和 Funbob 有車才好去，最好排同一天。Funbob 的價錢是 2026 年的，3 歲能不能由大人陪著坐，要再問。"));
 }
 function DICAR(){
   return sec("另一種交通：林道租車、慕尼黑還車（不住 Innsbruck）",tbl(["日期","改成"],[
@@ -1812,7 +1828,7 @@ function DIBODY(v){
     ul(["為什麼住 Innsbruck：林道到 Ortisei 一天坐完要 6.5–7 小時，拆成兩天，每天約 3 小時；Innsbruck 老城也值得逛"+(V?"":"。不想多換一次住處，可以租車（見下面）"),
       "為什麼山上只住 2 晚：Seiser Alm、Seceda 都是坐纜車上去，各半天到一天就看到多洛米蒂最有名的景色；Ortisei 8 月很貴，吃和逛又都在 Bolzano，所以 Bolzano 住 3 晚",
       V?"為什麼先 Bolzano 再 Ortisei：從 Innsbruck 坐火車直達 Bolzano，不用拖行李轉公車上山；最後再從山上直接往威尼斯。山上那兩天想要有車，可以在 Bolzano 租車、威尼斯還車（見下面）":"為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"]))+
-  DISIGHTS(v)+FOODPIC(V?"vven":"vdi")+
+  DISIGHTS(v)+DIKIDS(v)+FOODPIC(V?"vven":"vdi")+
   (V?DVCAR():DICAR())+
   DICHECK(v)+
   (V?sec("機票（2026-11-25 用 Google 機票查）",tbl(["走法","去程","回程","整趟每位大人"],[
