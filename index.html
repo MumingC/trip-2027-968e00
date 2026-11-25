@@ -548,7 +548,7 @@ function routeMap(k,W,H){
   const r=ROUTE[k],pts={};
   r.stops.forEach(([i,n,h],j)=>{pts[i]={kind:"stop",n:j+1,hollow:!!h,t:(h&&i!=="ischl"&&i!=="ziller"?"奧地利（未定）":(i==="ischl"?"湖區（示意）":P[i][2]))+"・"+n+(r.back===i?"，回台":"")};});
   (r.via||[]).forEach(i=>{pts[i]={kind:"via",t:P[i][2]};});
-  (r.ends||[]).forEach(i=>{pts[i]={kind:"end",t:P[i][2]+(r.endText||"・回台")};});
+  (r.ends||[]).forEach(i=>{pts[i]={kind:"end",t:(r.endT&&r.endT[i])||P[i][2]+(r.endText||"・回台")};});
   (r.spots||[]).forEach(i=>{pts[i]={kind:"spot",t:P[i][2]};});
   return drawMap(pts,r.legs,W,H,1.6);
 }
@@ -579,7 +579,7 @@ function drawMapsSVG(){
 const LEGEND=(home)=>'<div class="m-legend">'+(home?'<span><i class="k dest"></i>方案目的地（可點）</span><span><i class="k dest rec"></i>推薦方案</span>':'<span><i class="k stop"></i>住宿點與順序</span><span><i class="k end"></i>機場或回台地點</span><span><i class="k spot"></i>景點</span>')+'<span><i class="k land"></i>陸路</span><span><i class="k fly"></i>飛機</span></div>';
 function mapSection(k){
   const r=ROUTE[k],two=!!r.local;
-  return '<section><h2>路線圖</h2><div class="mapgrid'+(two?' two':'')+'"><figure class="mapfig"><figcaption>整段路線</figcaption><div class="map" data-map="route" data-k="'+k+'" role="img" aria-label="路線：'+esc(D[k]?D[k].plan:"林道 3 晚、琉森 4 晚、慕尼黑 2 晚")+'"></div></figure>'+(two?'<figure class="mapfig"><figcaption>'+r.local.title+'</figcaption><div class="map" data-map="local" data-k="'+k+'" role="img" aria-label="'+r.local.title+'"></div></figure>':'')+'</div>'+LEGEND(false)+'<p class="note">路線是示意的弧線，不是實際鐵路或公路的走向。'+r.note+'</p></section>';
+  return '<section><h2>路線圖</h2><div class="mapgrid'+(two?' two':'')+'"><figure class="mapfig"><figcaption>整段路線</figcaption><div class="map" data-map="route" data-k="'+k+'" role="img" aria-label="路線：'+esc(D[k]?D[k].plan:"林道 3 晚、琉森 4 晚、慕尼黑 2 晚")+'"></div></figure>'+(two?'<figure class="mapfig"><figcaption>'+r.local.title+'</figcaption><div class="map" data-map="local" data-k="'+k+'" role="img" aria-label="'+r.local.title+'"></div></figure>':'')+'</div>'+(r.legs.some(x=>x[3])?LEGEND(false).replace(/<\/div>$/,TLEG+'</div>')+legList(r):LEGEND(false))+'<p class="note">路線是示意的弧線，不是實際鐵路或公路的走向。'+r.note+'</p></section>';
 }
 function homeMapSection(){
   return '<section><h2>九個方案在哪裡</h2><div class="mapgrid two"><figure class="mapfig"><figcaption>全部方案（「起」是林道）</figcaption><div class="map" data-map="home" role="group" aria-label="從林道到九個方案目的地的地圖"></div></figure><figure class="mapfig"><figcaption>林道附近放大：瑞士、提洛、薩爾斯堡、斯洛維尼亞</figcaption><div class="map" data-map="near" role="group" aria-label="林道附近四個方案的放大地圖"></div></figure></div>'+LEGEND(true)+'<p class="note">線條只標出從林道到各目的地的方向，不是實際路線。匈牙利可搭飛機或火車，還沒決定，這裡先畫虛線。點目的地可以看該方案的路線。</p></section>';
@@ -603,7 +603,7 @@ function lPoints(kind,k){
   }
   r.stops.forEach(([i,n,h],j)=>{pts[i]={kind:"stop",n:j+1,hollow:!!h,t:(h&&i!=="ischl"&&i!=="ziller"?"奧地利（未定）":(i==="ischl"?"湖區（示意）":P[i][2]))+"・"+n+(r.back===i?"，回台":"")};});
   (r.via||[]).forEach(i=>{pts[i]={kind:"via",t:P[i][2]};});
-  (r.ends||[]).forEach(i=>{if(!pts[i]) pts[i]={kind:"end",t:P[i][2]+(r.endText||"・回台")};});
+  (r.ends||[]).forEach(i=>{if(!pts[i]) pts[i]={kind:"end",t:(r.endT&&r.endT[i])||P[i][2]+(r.endText||"・回台")};});
   (r.spots||[]).forEach(i=>{pts[i]={kind:"spot",t:P[i][2]};});
   return {pts,legs:r.legs,max:10};
 }
@@ -634,7 +634,9 @@ function drawMaps(){
     const m=L.map(el,{scrollWheelZoom:false,dragging:!touch,tap:false,zoomSnap:.25,attributionControl:true});
     L.tileLayer(LTILE,{maxZoom:19,attribution:LATTR}).addTo(m);
     m.attributionControl.setPrefix(false);
-    legs.forEach(([a,b,mode])=>L.polyline(lCurve(a,b,mode),{className:"lm-leg "+mode,weight:3,interactive:false}).addTo(m));
+    const tlabs=[];
+    legs.forEach(([a,b,mode,t,est,hide])=>{const c=lCurve(a,b,mode);L.polyline(c,{className:"lm-leg "+mode,weight:mode==="day"?2:3,interactive:false}).addTo(m);
+      if(t&&!hide) tlabs.push([c,t,est]);});
     const ll=[];
     for(const i in pts){
       const o=pts[i],p=[P[i][0],P[i][1]];ll.push(p);
@@ -654,9 +656,32 @@ function drawMaps(){
         if(!bad) break; m.setZoom(m.getZoom()-.25,{animate:false});
       }
     }
+    if(tlabs.length) lTimes(m,el,tlabs);
     if(touch) el.insertAdjacentHTML("beforeend",'<span class="lm-hint">兩指可以縮放</span>');
     el._lmap=m; LMAPS.push(m);
   });
+}
+
+// 交通時間標籤：沿著線找一個不壓到地名、標記和其他時間標籤的位置
+function lTimes(m,el,tlabs){
+  const cr=el.getBoundingClientRect(),boxes=[];
+  el.querySelectorAll(".leaflet-tooltip,.lm").forEach(x=>{const r=x.getBoundingClientRect();boxes.push([r.left-cr.left-3,r.top-cr.top-3,r.right-cr.left+3,r.bottom-cr.top+3]);});
+  const ov=b=>boxes.reduce((s,q)=>s+Math.max(0,Math.min(b[2],q[2])-Math.max(b[0],q[0]))*Math.max(0,Math.min(b[3],q[3])-Math.max(b[1],q[1])),0);
+  const tw=s=>{let w=14;for(const ch of s) w+=ch.charCodeAt(0)>255?11:6.6;return w;};
+  for(const [c,t,est] of tlabs){
+    const w=tw(t),h=19;let best=null;
+    for(const off of [0,-20,20,-38,38]) for(const i of [16,13,19,10,22,8,24,6,26]){
+      const p=m.latLngToContainerPoint(c[i]),y=p.y+off,b=[p.x-w/2,y-h/2,p.x+w/2,y+h/2];
+      if(b[0]<4||b[1]<4||b[2]>cr.width-4||b[3]>cr.height-22) continue;
+      const o=ov(b),s=o+Math.abs(off)*2;
+      if(!best||s<best[0]) best=[s,b,m.containerPointToLatLng([p.x,y]),o];
+      if(s===0) break;
+    }
+    if(cr.width<520&&(!best||best[3]>0)) continue; // 手機上放不下就不標，地圖下面的清單有
+    const ll=best?best[2]:c[16];
+    if(best) boxes.push(best[1]);
+    L.marker(ll,{icon:L.divIcon({className:"lm-tw",html:'<span class="lm-time'+(est?' est':'')+'">'+t+'</span>',iconSize:[0,0]}),interactive:false,keyboard:false,zIndexOffset:-500}).addTo(m);
+  }
 }
 const VIDS={"ch":[["1gPPlRi_ULg","瑞士的十二個月","Jetmir in Switzerland","9093 萬次"],["KjCd-rXinMA","瑞士冒險之旅","ML Travel Adventures","3005 萬次"],["Ux2zKPR6RD0","瑞士山谷美景","SWISSWOOW | The beautiful Switzerland","1478 萬次"],["kRUH8NNmiqQ","搭景觀火車遊瑞士","Richi Shah","457.3 萬次"],["d9NAAoSYa7E","琉森","epicglobe","10.2 萬次"]],"tirol":[["uXBjVC6sqg8","奧地利五大景點","MystiGlobe","38.9 萬次"],["3TKaZgzgPjY","奧地利的夢幻景點","Planet Pulse","27.8 萬次"],["Eph3CLTATME","提洛夏季滑道","BestDestinationsToTravel","17.6 萬次"],["YN_8g0RYTME","因斯布魯克近郊健行","Tony Rich","3.2 萬次"],["vYiEdNQZPGA","因斯布魯克必做的事","Dayvee Sutton","3.2 萬次"]],"salzburg":[["_IBccnHPLLQ","奧地利與哈修塔特","Wanderlust Hideouts","46.3 萬次"],["4EY-QWmCk9k","薩爾斯堡三日行程","The Travel Guardian","19.2 萬次"],["8UAEBIulJss","為什麼要去薩爾斯堡","thelittlebasket","16.2 萬次"],["bgrxCwsozmE","薩爾斯堡五件必做","Jesus | JYP Travels","10.2 萬次"],["0cXANhkcjSA","哈修塔特必去景點","tour On","6.2 萬次"]],"slovenia":[["NK2L0DWIM04","斯洛維尼亞最美景點","Our Awesome World","254.7 萬次"],["1dIyiMGuL30","像童話的斯洛維尼亞","UnrealEarths","158.4 萬次"],["S6q3kjAuuds","斯洛維尼亞最美的地方","Feel, Psycho and Why","22.5 萬次"],["5IlmC3FvB6g","被低估的斯洛維尼亞","PointsPat","24.1 萬次"],["iZ4eA-yKb90","盧比安納","Salaryman’s Adventures","13.4 萬次"]],"czech":[["zjKyASRHQ9A","布拉格最窄的街","The Traveller Twins","4108 萬次"],["RVCAld4gLJE","布拉格 10 件必做","Luke Patrick Travel","41.3 萬次"],["FRjUM170Zzg","布拉格 8 件必做","Kelsey in London","36.4 萬次"],["V3Cd-5bL8TU","布拉格與庫倫洛夫","Wanderlust Hideouts","31.5 萬次"],["HHQsLPBtjmM","為什麼布拉格最棒","The $10 Travel Show","72.6 萬次"]],"poland":[["PejPopUvhhc","波蘭最美景點","Our Awesome World","4055 萬次"],["wiuakGFeIgQ","波蘭必去景點","Travel Ventures","235.6 萬次"],["GABWtQt1iQU","波蘭的夢幻景點","Lunar Calm","60.9 萬次"],["vt7hRTtEo78","克拉科夫 6 件必做","TravelSnapIt","17.1 萬次"],["uo_PPQfUsd8","克拉科夫","PointsPat","9.2 萬次"]],"hungary":[["WalY_y1pZEI","美麗的布達佩斯","Melina travels","262.3 萬次"],["MaNXIx9sKWg","匈牙利最美景點","HànTravels","138.3 萬次"],["FuCUjJd5MxY","匈牙利美景精選","Wonderland Network","82.5 萬次"],["-kR_PagrFBQ","布達佩斯市景","CJ Explores","24.6 萬次"],["nuKejrIJts8","布達佩斯三日行程","Amazing Journeys","18.6 萬次"]],"nl":[["Am1i1at7Xqo","荷蘭最美景點","Our Awesome World","1094 萬次"],["FgCGJSn3Yy4","阿姆斯特丹大冒險","D Billions","340.8 萬次"],["IOH85WARi-k","美麗的阿姆斯特丹","Nomadic Destinations","104.3 萬次"],["va2bfcF5a7Y","阿姆斯特丹 10 件必做","Kelsey in London","82.5 萬次"],["jP7jR1wSnjo","阿姆斯特丹近郊 20 分鐘","tripuntraveled","43.1 萬次"]],"portugal":[["gCwm3J2b4Ho","里斯本黃色小電車","SilvanaEverywhere","424.7 萬次"],["iRRZliYBgMc","里斯本有多美","SilvanaEverywhere","67.7 萬次"],["YqDNVX2kIA8","里斯本 7 個必去","Naomi Castelo","40.3 萬次"],["992-dovrb0U","里斯本 20 件必做","Hungry Pursuit","16.9 萬次"],["K6e6mHjau08","辛特拉一日行程","Hungry Pursuit","10.4 萬次"]],"de":[["mOetbI8lFno","三國共享的波登湖","Geo All Day","53.4 萬次"],["EI_4-AT6Hpc","新天鵝堡","Journey Quest","22.7 萬次"],["Xf_BjHAc1JY","林道","Silent City Walks","2.4 萬次"],["8PWSnWLB3mg","巴伐利亞三大美景","German Attractions 🇩🇪","5.8 萬次"],["BYDF7gJlUhE","搭齊柏林飛船","Kanthu’s Travel Trails","9 萬次"]]};
 function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
@@ -931,7 +956,7 @@ function home(){
     ["8/7（六）","—","早上到桃園"]])+
     note("日期配合林道兒童節（Lindauer Kinderfest），2027 年預計 7/28（三），確切日期以林道市公告為準；巴伐利亞 8/2 開始放暑假。8/1（日）是瑞士國慶，晚上琉森湖上有煙火，但商店休息。")+
     note("和 7 月初比，總花費差不多，但林道住宿少很多：Booking 上能住 5 個人的，7 月初有 25 間，7/26–7/30 只剩 16 間，7 月初看好的那幾間和林道的 Airbnb 都已客滿。林道最好盡快訂。"))+
-  '<section><h2>路線圖</h2><div class="mapgrid two"><figure class="mapfig"><figcaption>整段路線</figcaption><div class="map" data-map="route" data-k="main" role="img" aria-label="路線：蘇黎世機場、林道 4 晚、琉森 4 晚、Interlaken 一帶 3 晚、蘇黎世機場"></div></figure><figure class="mapfig"><figcaption>'+ROUTE.main.local.title+'</figcaption><div class="map" data-map="local" data-k="main" role="img" aria-label="'+ROUTE.main.local.title+'"></div></figure></div>'+LEGEND(false)+note("路線是示意的弧線，不是實際鐵路或公路的走向。"+ROUTE.main.note)+'</section>'+
+  '<section><h2>路線圖</h2><div class="mapgrid two"><figure class="mapfig"><figcaption>整段路線</figcaption><div class="map" data-map="route" data-k="main" role="img" aria-label="路線：蘇黎世機場、林道 4 晚、琉森 4 晚、Interlaken 一帶 3 晚、蘇黎世機場"></div></figure><figure class="mapfig"><figcaption>'+ROUTE.main.local.title+'</figcaption><div class="map" data-map="local" data-k="main" role="img" aria-label="'+ROUTE.main.local.title+'"></div></figure></div>'+LEGEND(false).replace(/<\/div>$/,TLEG+'</div>')+legList(ROUTE.main)+note("路線是示意的弧線，不是實際鐵路或公路的走向；交通時間是一般車程，訂票前用 SBB／DB 時刻表確認。"+ROUTE.main.note)+'</section>'+
   sightsSection()+
   sec("預估花費（"+FAM+"、14 天・11 晚）",tbl(["項目","金額","說明"],[
     ["機票","14–20 萬","轉一次機到蘇黎世（國泰經香港為首選）"],
@@ -1735,7 +1760,7 @@ function DIBODY(){
 }
 function ZILBODY(){
   const L='<a class="go" href="#lindau">林道</a>';
-  return '<h2 style="margin-top:2rem">另一種排法：Zillertal＋多洛米蒂</h2>'+
+  return '<h2 style="margin-top:2rem">另一種排法：Zillertal＋多洛米蒂</h2>'+vMapSec("vzil","Zillertal 組合路線圖")+
   sec("每日行程（林道 4 → Zillertal 3 → Bolzano 4 → 慕尼黑 1）",tbl(["日期","住","安排"],[
     ["7/25–7/29",L,"和上面一樣（7/28 兒童節）"],
     {cells:["7/30（五）","Mayrhofen","火車約 4–4.5 小時：林道 → Innsbruck → Jenbach，換 "+gmq("Zillertalbahn 窄軌火車","Zillertalbahn Jenbach")+"到 Mayrhofen"],cls:"rec"},
@@ -1786,6 +1811,58 @@ function FOODSEC(){
     [o("tirol","提洛"),s(2),s(2),"山為主","Zillertal 住 6 晚，以纜車和山上活動為主，Innsbruck 要當天來回"]])+
     note("每一版的第一站都是林道：島上老城很好逛。德義版和 Zillertal 組合會去的市集已實查（見德義版的「實查結果」）：週日都休息，Bolzano 的 Piazza delle Erbe 週六只開到下午 1 點；其他方案的市集沒有逐一實查。")+
     ul(["<b>最符合：德奧版、德義版。</b>德奧版城市最多；德義版多了多洛米蒂的山景，但都是坐纜車上去","<b>想便宜又想逛老城：捷克。</b>","<b>瑞士版最不符合</b>：風景最好，但吃和逛都比較弱"]));
+}
+// ---------- 版本頁路線圖（2026-11-25）：四個版本＋Zillertal 組合，每段標交通時間 ----------
+// legs: [起, 迄, "land"|"fly"|"day", 時間文字, 是否估計, 地圖上不標（兩點太近時）]；時間都取自各版本的每日行程
+Object.assign(P,{garmisch:[47.4917,11.0955,"Garmisch"],nbg:[49.4478,11.0683,"紐倫堡鐵道博物館"],lego:[48.4247,10.2997,"樂高樂園"],
+  ortisei:[46.5747,11.6715,"Ortisei"],bolzano:[46.4983,11.3548,"Bolzano"],merano:[46.6713,11.1594,"Merano"],brixen:[46.715,11.656,"Brixen"],
+  seiser:[46.54,11.63,"Seiser Alm"],mayr:[47.1667,11.8636,"Mayrhofen"],vienna:[48.2082,16.3738,"維也納"],vie:[48.1103,16.5697,"維也納機場"],
+  fuessen:[47.5696,10.7004,"Füssen"],zurich:[47.3769,8.5417,"蘇黎世"]});
+Object.assign(LDIR,{seiser:"top",merano:"left",brixen:"top",bolzano:"bottom",sbg:"top"});
+const MUCIN=["muc","lindau","land","火車約 2.5 小時",1];
+Object.assign(ROUTE,{
+  vde:{stops:[["lindau","4 晚"],["garmisch","3 晚"],["munich","5 晚"]],ends:["muc"],endText:"・抵達與回台",spots:["neusch","nbg","lego"],
+    legs:[MUCIN,["lindau","neusch","land","開車約 1.5 小時",1],["neusch","garmisch","land","開車 1–1.5 小時",1],["garmisch","munich","land","火車約 1 小時 20 分",1],
+      ["munich","nbg","day","ICE 約 1 小時 10 分",1],["munich","lego","day","火車 1–1.5 小時＋公車",1],["munich","muc","land","S-Bahn 約 40 分",1,1]],
+    note:"新天鵝堡是去 Garmisch 的路上順路去；紐倫堡和樂高樂園是從慕尼黑當天來回。"},
+  vdi:{stops:[["lindau","4 晚"],["ortisei","3 晚"],["bolzano","3 晚"],["munich","2 晚"]],ends:["muc"],endText:"・抵達與回台",spots:["merano","brixen"],
+    legs:[MUCIN,["lindau","ortisei","land","火車＋公車約 6.5–7 小時",1],["ortisei","bolzano","land","350 號公車約 1 小時"],
+      ["bolzano","merano","day","火車約 40 分",1,1],["bolzano","brixen","day","火車約 30 分",1,1],["bolzano","munich","land","直達 railjet 3 小時 50 分"],["munich","muc","land","S-Bahn 約 40 分",1,1]],
+    note:"Merano 和 Brixen 是 8/4 二選一的當天來回。Seiser Alm、Seceda 從 Ortisei 坐纜車上去，未另外標。"},
+  vzil:{stops:[["lindau","4 晚"],["mayr","3 晚"],["bolzano","4 晚"],["munich","1 晚"]],ends:["muc"],endText:"・抵達與回台",spots:["ibk","seiser"],
+    legs:[MUCIN,["lindau","mayr","land","火車約 4–4.5 小時",1],["mayr","ibk","day","火車約 1.5 小時",1],["mayr","bolzano","land","火車約 4–4.5 小時",1],
+      ["bolzano","seiser","day","公車＋纜車約 1 小時",1,1],["bolzano","munich","land","直達 railjet 3 小時 50 分"],["munich","muc","land","S-Bahn 約 40 分",1,1]],
+    note:"Innsbruck 是從 Mayrhofen 當天來回（行程表沒寫車程，圖上的 1.5 小時是估的）；Seiser Alm 從 Bolzano 當天來回。"},
+  vat:{stops:[["lindau","4 晚"],["sbg","3 晚"],["hallstatt","1 晚"],["vienna","3 晚"]],ends:["muc","vie"],endT:{muc:"慕尼黑機場・抵達",vie:"維也納機場・回台"},spots:["neusch","schaf"],
+    legs:[MUCIN,["lindau","neusch","day","開車約 1.5 小時",1],["lindau","sbg","land","火車約 4.5 小時",1],["sbg","schaf","day","公車＋船 1.5–2 小時",1],
+      ["sbg","hallstatt","land","開車約 1.5 小時",1],["hallstatt","vienna","land","開車約 3.5 小時",1],["vienna","vie","land","機場快線約 16 分",1,1]],
+    note:"新天鵝堡從林道開車當天來回；Schafberg 齒軌火車從薩爾斯堡坐公車到 Wolfgangsee 再搭船（行程表沒寫車程，圖上的時間是估的）。"},
+  vwa:{stops:[["munich","1 晚"],["fuessen","1 晚"],["lindau","2 晚"],["lucerne","4 晚"],["interlaken","3 晚"],["zurich","1 晚"]],ends:["muc","zrh"],endT:{muc:"慕尼黑機場・抵達",zrh:"蘇黎世機場・回台"},via:["sbg"],
+    legs:[["muc","munich","land","S-Bahn 約 40 分",1,1],["munich","sbg","land","火車約 1.5 小時",1],["sbg","fuessen","land","火車約 4 小時／開車約 3 小時",1],
+      ["fuessen","lindau","land","火車 2.5–3 小時／開車 1.5 小時",1],["lindau","lucerne","land","火車約 3.5 小時",1],["lucerne","interlaken","land","直達火車約 1 小時 50 分",1],
+      ["interlaken","zurich","land","火車約 2 小時",1],["zurich","zrh","land","火車約 10 分",1,1]],
+    note:"這是家人提的原版：7/27 慕尼黑 → 薩爾斯堡（白天逛）→ Füssen，圖上看得出薩爾斯堡到 Füssen 要往回經過慕尼黑。下面「建議的改法」拿掉了薩爾斯堡和 Füssen。"}
+});
+// 瑞士版主行程也標上時間（MAIN_LEGS 是瑞士版、林道頁、琉森頁共用）
+MAIN_LEGS[0].push("火車約 1.5–2 小時",1);MAIN_LEGS[1].push("火車約 3.5 小時",1);MAIN_LEGS[2].push("直達火車約 1 小時 50 分",1);MAIN_LEGS[3].push("火車約 2–2.5 小時",1);
+(function(){const s=document.createElement("style");s.textContent=
+  '.lm-tw{background:none;border:0}.lm-time{position:absolute;left:0;top:0;transform:translate(-50%,-50%);white-space:nowrap;background:#fff8ec;border:1.5px solid #d9902f;color:#6b3f08;border-radius:8px;padding:1px 6px;font:600 11px/1.35 var(--body);box-shadow:0 1px 2px rgba(0,0,0,.2)}'+
+  '.lm-time.est{border-style:dashed}.lm-leg.day{stroke:#4d7c4a;stroke-dasharray:6 6}.m-leg.day{stroke:var(--meadow);stroke-dasharray:6 5;stroke-width:2}'+
+  '.k.day{width:22px;border-top:2px dashed var(--meadow)}.k.tm{width:18px;height:10px;border:1.5px solid var(--sun);border-radius:4px;background:#fff8ec}.k.tm.est{border-style:dashed}'+
+  '.vlegs{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:2px;font-size:14px}.vlegs li{padding:2px 0}.vlegs b{font-weight:600}.vlegs .est{color:var(--muted);font-size:12px}';
+  document.head.appendChild(s);})();
+function legName(i,r){return (r.endT&&r.endT[i])?r.endT[i].split("・")[0]:P[i][2];}
+// 地圖下面的文字版交通時間（沒網路、地圖載不出來時也看得到）
+function legList(r){
+  const L=r.legs.filter(x=>x[3]);if(!L.length) return "";
+  return '<ul class="vlegs">'+L.map(([a,b,mode,t,est])=>'<li>'+legName(a,r)+(mode==="day"?' ⇄ ':' → ')+legName(b,r)+'：<b>'+t+'</b>'+(mode==="day"?'（當天來回）':'')+(est?' <span class="est">估計</span>':'')+'</li>').join("")+'</ul>';
+}
+const TLEG='<span><i class="k day"></i>當天來回</span><span><i class="k tm"></i>交通時間（查過時刻表）</span><span><i class="k tm est"></i>交通時間（估計）</span>';
+function vMapSec(rk,title){
+  const r=ROUTE[rk];
+  return '<section><h2>'+(title||"路線圖")+'</h2><div class="mapgrid"><figure class="mapfig"><figcaption>整段路線，線上標的是單程交通時間</figcaption><div class="map" data-map="route" data-k="'+rk+'" role="img" aria-label="路線：'+esc(r.stops.map(s=>P[s[0]][2]+" "+s[1]).join("、"))+'"></div></figure></div>'+
+    LEGEND(false).replace(/<\/div>$/,TLEG+'</div>')+legList(r)+
+    '<p class="note">路線是示意的弧線，不是實際鐵路或公路的走向。標「估計」的是一般車程或用前後段加起來估的，訂票前用 DB／ÖBB／SBB 時刻表確認。'+r.note+'</p></section>';
 }
 // ---------- 其他版本（2026-11-25 拆頁）：#cmp 只放總覽（比較表、怎麼選、愛吃逛老街），四個版本各自一頁 ----------
 KIND.cmp="alp";KIND.vde="alp";KIND.vdi="alp";KIND.at="alp";KIND.w15="alp";
@@ -1887,7 +1964,7 @@ function vfoot(){return note('<a class="go" href="#cmp">← 回到比較表，�
 function vpage(k,body,hero){
   const html=body();            // 先產生內容（有些會改到 hero），再設這頁的 hero
   hero();
-  return vbar(k)+html+vfoot();
+  return vbar(k)+vMapSec({de:"vde",di:"vdi",at:"vat",wa:"vwa"}[k],k==="wa"?"路線圖（家人提的原版）":"")+html+vfoot();
 }
 D.vde={short:"德南版",name:"德南版",render(){return vpage("de",DSBODY,()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進出","德南版：林道＋Garmisch＋慕尼黑","林道一樣住 4 晚、過兒童節，之後到 Garmisch 坐齒軌火車上 Zugspitze，最後在慕尼黑住 5 晚逛博物館、去樂高樂園。去回都長榮直飛。",["去回都直飛","換 2 次住處",FAM+"約 40–50 萬"],SN["ds-2"]));}};
 D.vdi={short:"德義版",name:"德義版",render(){return vpage("di",DIBODY,()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進出","德義版：林道＋多洛米蒂＋Bolzano","林道住 4 晚過兒童節，之後到義大利多洛米蒂山區的 Ortisei 住 3 晚、Bolzano 住 3 晚，最後回慕尼黑。上山都坐纜車；最下面另附 Zillertal 組合。",["去回都直飛","換 3 次住處",FAM+"約 45–56 萬"]));}};
