@@ -1804,8 +1804,8 @@ function DIBODY(v){
     {cells:["7/31（六）","Bolzano","Innsbruck 坐直達 railjet 約 2 小時到 Bolzano；中午前到的話，"+erbe+"週六開到下午 1 點；下午逛"+lauben],cls:"rec"},
     {cells:["8/1（日）","Bolzano","早上"+otzi+"；下午坐"+ritten+"。週日市集和很多商店休息"],cls:"rec"},
     ["8/2（一）","Bolzano",day+"；回來逛"+erbe],
-    {cells:["8/3（二）","Ortisei","350 號公車約 1 小時上山；下午"+seiser],cls:"rec"},
-    ["8/4（三）","Ortisei","早上"+seceda+"；下午逛 Ortisei 步行街（木雕店）"]]:[
+    {cells:["8/3（二）","Ortisei","350 號公車約 1 小時上山；下午"+seiser+"。想輕鬆一點的話，改去 "+gmq("Children's afternoon","Piazza S. Antonio Ortisei")+"（每週二 14:30–18:00，S. Antonio 廣場，3 歲也能玩）"],cls:"rec"},
+    ["8/4（三）","Ortisei","8、12 歲參加 "+diSrc("Kids Active","https://www.valgardena.it/en/addresses/detail/base/poi/st-ulrich-groeden/val-gardena-kids-active/ECBC29B8E4E11413F88976EC7D52B590/")+" 一整天（9:30–16:30，自己帶午餐，前一天 18:00 前到遊客中心報名）；大人帶 3 歲早上"+seceda+"；下午逛 Ortisei 步行街（木雕店）"]]:[
     {cells:["7/31（六）","Ortisei","Innsbruck 坐直達 railjet 約 2 小時到 Bolzano，再坐 350 號公車約 1 小時上山（也可以在 Ponte Gardena 下車轉公車）；傍晚逛 Ortisei 步行街（木雕店）"],cls:"rec"},
     {cells:["8/1（日）","Ortisei",seiser],cls:"rec"},
     {cells:["8/2（一）","Bolzano","早上"+seceda+"；下午坐 350 號公車約 1 小時下山到 Bolzano（每小時一班），傍晚逛"+lauben],cls:"rec"},
@@ -1824,7 +1824,7 @@ function DIBODY(v){
     ["7/27（二）",L,gmq("拉文斯堡遊戲樂園","Ravensburger Spieleland")],
     ["7/28（三）",L,"<b>林道兒童節</b>：早上看小孩遊行；下午 "+gmq("Pfänder 纜車","Pfänderbahn Bregenz")],
     ["7/29（四）",L,"島上老城散步、博登湖遊船；新天鵝堡想去就這天當天來回"]],ibk,mid,tail))+
-    note("Ortisei 和 Bolzano 都在義大利的南提洛，德語、義語都通。火車與公車時間已對照 2026 年的時刻表（見下面「實查結果」），Innsbruck 那兩段是估計；2027 年的時刻表還沒定案，訂票前用 ÖBB／DB 再確認。"+(V?"Ortisei 到威尼斯、Rialto 市集的營業日沒有實查。土航回程另有晚上 20:00 起飛的班次（8/8 下午 17:55 到桃園），可以在威尼斯多玩一個白天。":""))+
+    note("Ortisei 和 Bolzano 都在義大利的南提洛，德語、義語都通。火車與公車時間已對照 2026 年的時刻表（見下面「實查結果」），Innsbruck 那兩段是估計；2027 年的時刻表還沒定案，訂票前用 ÖBB／DB 再確認。"+(V?"Kids Active 收 6–12 歲，2026 年一人一天 78 歐（住合作住宿 40 或 60 歐），至少 3 人開團，2027 年的節目還沒公布；Children's afternoon 2026 年一人 15–20 歐（2026-11-25 查 valgardena.it）。Ortisei 到威尼斯、Rialto 市集的營業日沒有實查。土航回程另有晚上 20:00 起飛的班次（8/8 下午 17:55 到桃園），可以在威尼斯多玩一個白天。":""))+
     ul(["為什麼住 Innsbruck：林道到 Ortisei 一天坐完要 6.5–7 小時，拆成兩天，每天約 3 小時；Innsbruck 老城也值得逛"+(V?"":"。不想多換一次住處，可以租車（見下面）"),
       "為什麼山上只住 2 晚：Seiser Alm、Seceda 都是坐纜車上去，各半天到一天就看到多洛米蒂最有名的景色；Ortisei 8 月很貴，吃和逛又都在 Bolzano，所以 Bolzano 住 3 晚",
       V?"為什麼先 Bolzano 再 Ortisei：從 Innsbruck 坐火車直達 Bolzano，不用拖行李轉公車上山；最後再從山上直接往威尼斯。山上那兩天想要有車，可以在 Bolzano 租車、威尼斯還車（見下面）":"為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"]))+
@@ -1880,7 +1880,7 @@ function DIBODY(v){
     ["門票","1.5–2.5 萬","纜車（Seiser Alm、Seceda、Ritten、Nordkette）、冰人博物館、遊戲樂園、Pfänder（估計）"],
     ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"],
     {cells:["合計",V?"約 41–53 萬":"約 45–55 萬",""],total:1}])+
-    note("機票和住宿是實查，其他是經驗估計。"))+
+    note("機票和住宿是實查，其他是經驗估計。"))+(V?calcHTML("dv"):"")+
   '<section class="cols"><div><h2>好處</h2>'+ul(V?["多洛米蒂的鋸齒岩峰，坐纜車就看得到，不用爬山","吃和逛最多：Innsbruck 老城、Bolzano 的市集和拱廊老街，最後再加上威尼斯整座老城","機票比慕尼黑回便宜約 4 萬","最後不用再往北坐 4 小時火車回慕尼黑"]
       :["多洛米蒂的鋸齒岩峰，坐纜車就看得到，不用爬山","Bolzano 吃得最好：義大利菜加南提洛菜，市集、拱廊老街都在走路範圍；路上還順便逛 Innsbruck 老城","去回都長榮直飛，和德南版同一張票","沒有少女峰那種年齡、身高限制"])+
     '</div><div><h2>要注意</h2>'+ul(V?["換 4 次住處（林道 → Innsbruck → Bolzano → Ortisei → 威尼斯）","去回都要在伊斯坦堡轉機，比直飛多 2–4 小時","8 月的威尼斯很熱、人很多，推車常常要抬","兩個愛火車的孩子少了德意志博物館"]
@@ -1998,6 +1998,90 @@ function FOODSEC(){
     [o("tirol","提洛"),s(2),s(2),"山為主","Zillertal 住 6 晚，以纜車和山上活動為主，Innsbruck 要當天來回"]])+
     note("每一版的第一站都是林道：島上老城很好逛。德義版和 Zillertal 組合會去的市集已實查（見德義版的「實查結果」）：週日都休息，Bolzano 的 Piazza delle Erbe 週六只開到下午 1 點；其他方案的市集沒有逐一實查。")+
     ul(["<b>最符合：德奧版、德義版。</b>德奧版城市最多；德義版多了多洛米蒂的山景，但都是坐纜車上去","<b>想便宜又想逛老城：捷克。</b>","<b>瑞士版最不符合</b>：風景最好，但吃和逛都比較弱"]));
+}
+// 自己算總價（2026-11-25）：選住宿、勾景點，總價即時更新。CALC[k] 每個版本一份資料；目前只有德義（威尼斯回）dv
+// 選項格式：[名稱, 一家五口台幣, 1=實查／0=估計, 說明]；check 類多一欄：預設勾選
+const CALC={dv:{
+  fixed:[["交通（火車、公車、水上巴士）",20000,0,"1.5–2.5 萬取中間"],["其他（旅平險、網路、桃園機場來回）",13500,0,"0.8–1.9 萬取中間"]],
+  groups:[
+    {k:"fly",t:"機票（2026-11-25 Google 機票）",opts:[["土航，經伊斯坦堡",180000,1,"每位大人 39,637 元"],["荷航，經阿姆斯特丹",195000,0,"每位大人 42,849 元，一家按比例估"]]},
+    {k:"li",t:"林道 4 晚",opts:[["Ferienhof am Taubenberg（北邊 4 公里，要搭車）",29000,1],["Ufergärten 湖邊兩房公寓",46000,1],["Spiegel Garni（島上，含早餐）",61000,1]],d:1},
+    {k:"ib",t:"Innsbruck 1 晚",opts:[["Alexander",10000,1],["myQuartier City Chalets",10000,1],["Marktbar Studios（老城旁）",15000,1]]},
+    {k:"bz",t:"Bolzano 3 晚",opts:[["Talvera Dream",32000,1],["Stay COOPER Laurenz",35000,1],["Stay COOPER Laubenhaus（拱廊老街上）",47000,1]]},
+    {k:"ot",t:"Ortisei 2 晚",opts:[["Apartment Rainer",54000,1],["Mountain Living Apartment Idylia",60000,1],["Apartments Rainer - Val Gardena",67000,1]]},
+    {k:"ve",t:"威尼斯 2 晚",opts:[["beautiful house in Venice",15000,1],["Family apartment with Terrace",19000,1],["Venice Lance（離車站 2 分鐘）",21000,1]]},
+    {k:"food",t:"餐飲 15 天",opts:[["多自己煮",50000,0],["一半自己煮、一半外食",57500,0],["多外食",65000,0]],d:1}],
+  swap:{t:"Bolzano＋Ortisei 改住親子飯店 Familienhotel Huber（Vals，7/31–8/5 共 5 晚，三餐全包，有 kids club）",price:261322,real:1,
+    off:["bz","ot"],food:-40000,extra:[["Huber 要租車",15000],["Huber 大人的酒和咖啡",3000]],
+    n:"Booking 2026-11-25 實查（45 m² 家庭套房，含稅）。勾了之後，Bolzano、Ortisei 的住宿不算，餐飲少算約 4 萬、加租車約 1.5 萬（估計）"},
+  acts:[
+    ["7/27 拉文斯堡遊戲樂園",6050,0,"3 歲起就要買票；線上約 42 歐、現場 51 歐（2026 年，比價網站）",1],
+    ["7/28 Pfänder 纜車",1370,1,"家庭來回票 38 歐（2026 年官網）",1],
+    ["7/29 博登湖遊船",2000,0,"大人約 18.5 歐（2025 年），小孩半價是推估",1],
+    ["7/29 新天鵝堡當天來回",2900,0,"大人門票 21 歐、18 歲以下免費，加火車（估計）",0],
+    ["7/30 Innsbruck Nordkette 纜車（到 Seegrube）",6100,1,"大人 53.1 歐、6–15 歲 31.9 歐、6 歲以下免費（官網 2026/11–2027/11 價格）",1],
+    ["8/1 冰人博物館",940,1,"家庭票 26 歐",1],
+    ["8/1 Ritten 纜車＋小火車",0,1,"Bolzano 客人卡免費",1],
+    ["8/2 Merano 或 Brixen 當天來回",0,1,"南提洛區內火車用客人卡免費",1],
+    ["8/3 Children's afternoon（3 個小孩）",1900,0,"一人 15–20 歐（2026 年）",0],
+    ["8/3 Seiser Alm 纜車（從 Ortisei）",4770,1,"大人 39 歐、8–14 歲 27.3 歐、8 歲以下免費（2026 年官網）",1],
+    ["8/4 Kids Active（8、12 歲一整天）",5620,1,"一人 78 歐；住合作住宿 40 或 60 歐（2026 年）",1],
+    ["8/4 Seceda 纜車",7990,1,"大人 74 歐、8–15 歲 37 歐、8 歲以下免費（2026 年）",1],
+    ["8/5–8/7 威尼斯水上巴士 48 小時票",5040,1,"一人 35 歐，6 歲以下免費",1]]
+}};
+const calcWan=x=>(x/10000).toFixed(1)+" 萬";
+const calcP=x=>x<10000?x.toLocaleString("en-US")+" 元":calcWan(x);
+function calcCSS(){
+  if(document.getElementById("calc-css")) return;
+  const st=document.createElement("style");st.id="calc-css";
+  st.textContent='.calc fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:0 0 12px;background:var(--surface)}.calc legend{font-weight:700;padding:0 6px}.calc label{display:flex;gap:8px;align-items:flex-start;padding:6px 0;line-height:1.5;cursor:pointer}.calc label input{margin-top:5px;flex:none;width:18px;height:18px;accent-color:var(--lake)}.calc label span.t{flex:1}.calc .p{flex:none;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}.calc .est{font-size:.8em;font-weight:400;color:var(--sun);margin-left:4px}.calc .real{font-size:.8em;font-weight:400;color:var(--meadow);margin-left:4px}.calc .sub{display:block;font-size:.85em;color:var(--muted)}.calc fieldset.off{opacity:.45}.calc .tot{position:sticky;bottom:0;z-index:5;background:var(--lake);color:var(--surface);border-radius:12px;padding:12px 16px;margin:12px 0;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;box-shadow:0 2px 10px rgba(0,0,0,.18)}.calc .tot b{font-size:1.5em}.calc .tot small{opacity:.9}.calc .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 14px}.calc .row{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed var(--line)}.calc button{font:inherit;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}';
+  document.head.appendChild(st);
+}
+function calcTag(r){return r?'<span class="real">實查</span>':'<span class="est">估計</span>';}
+function calcHTML(k){
+  calcCSS();
+  const C=CALC[k],id="calc-"+k;
+  const g=C.groups.map(G=>'<fieldset data-g="'+G.k+'"><legend>'+G.t+'</legend>'+G.opts.map((o,i)=>
+    '<label><input type="radio" name="'+id+'-'+G.k+'" value="'+i+'"'+(i===(G.d||0)?' checked':'')+' onchange="calcUpd(\''+k+'\',1)"><span class="t">'+o[0]+(o[3]?'<span class="sub">'+o[3]+'</span>':'')+'</span><span class="p">'+calcP(o[1])+calcTag(o[2])+'</span></label>').join("")+'</fieldset>').join("");
+  const sw=C.swap?'<fieldset><legend>換成親子飯店？</legend><label><input type="checkbox" data-swap="1" onchange="calcUpd(\''+k+'\',1)"><span class="t">'+C.swap.t+'<span class="sub">'+C.swap.n+'</span></span><span class="p">'+calcWan(C.swap.price)+calcTag(C.swap.real)+'</span></label></fieldset>':'';
+  const a='<fieldset><legend>景點和活動（一家五口）</legend>'+C.acts.map((o,i)=>
+    '<label><input type="checkbox" data-a="'+i+'"'+(o[4]?' checked':'')+' onchange="calcUpd(\''+k+'\',1)"><span class="t">'+o[0]+(o[3]?'<span class="sub">'+o[3]+'</span>':'')+'</span><span class="p">'+(o[1]?calcP(o[1]):"免費")+calcTag(o[2])+'</span></label>').join("")+
+    '<p style="margin:8px 0 0"><button type="button" onclick="calcAll(\''+k+'\',true)">全部勾選</button> <button type="button" onclick="calcAll(\''+k+'\',false)">全部取消</button></p></fieldset>';
+  const f='<fieldset><legend>固定的估計</legend>'+C.fixed.map(o=>'<div class="row"><span>'+o[0]+'<span class="sub">'+o[3]+'</span></span><span class="p">'+calcP(o[1])+calcTag(o[2])+'</span></div>').join("")+'</fieldset>';
+  setTimeout(()=>calcInit(k),0);
+  return sec("自己算總價",'<p>選住宿、勾景點，下面的總價會跟著變。<span class="real">實查</span> 是查過的價格，<span class="est">估計</span> 是推估；選擇會記在這台裝置的瀏覽器。</p>'+
+    '<div class="calc" id="'+id+'"><div class="grid"><div>'+g+'</div><div>'+sw+a+f+'</div></div>'+
+    '<div class="tot" aria-live="polite"><span>一家五口總價</span><b id="'+id+'-sum">—</b><small id="'+id+'-det"></small></div></div>'+
+    note("門票是 2026 年的價格（2027 年還沒公布），換成台幣用 1 歐元約 36 元估計；住宿是 2 大 3 小、一間房、含稅的 Booking 總價。"));
+}
+function calcAll(k,v){document.querySelectorAll("#calc-"+k+" input[data-a]").forEach(x=>x.checked=v);calcUpd(k,1);}
+function calcInit(k){
+  const box=document.getElementById("calc-"+k);if(!box) return;
+  let s=null;try{s=JSON.parse(localStorage.getItem("calc-"+k)||"null");}catch(e){}
+  if(s){
+    Object.keys(s.r||{}).forEach(g=>{const x=box.querySelector('input[name="calc-'+k+'-'+g+'"][value="'+s.r[g]+'"]');if(x) x.checked=true;});
+    (s.a||[]).forEach((v,i)=>{const x=box.querySelector('input[data-a="'+i+'"]');if(x) x.checked=!!v;});
+    const w=box.querySelector("input[data-swap]");if(w) w.checked=!!s.w;
+  }
+  calcUpd(k,0);
+}
+function calcUpd(k,save){
+  const C=CALC[k],box=document.getElementById("calc-"+k);if(!box) return;
+  const w=box.querySelector("input[data-swap]"),sw=!!(w&&w.checked);
+  let sum=0,est=0,r={};
+  const add=(p,real)=>{sum+=p;if(!real) est+=p;};
+  C.groups.forEach(G=>{
+    const x=box.querySelector('input[name="calc-'+k+'-'+G.k+'"]:checked'),i=x?+x.value:0;r[G.k]=i;
+    const off=sw&&C.swap.off.includes(G.k),fs=box.querySelector('fieldset[data-g="'+G.k+'"]');
+    if(fs){fs.classList.toggle("off",off);fs.querySelectorAll("input").forEach(y=>y.disabled=off);}
+    if(!off) add(G.opts[i][1],G.opts[i][2]);
+  });
+  if(sw){add(C.swap.price,C.swap.real);add(C.swap.food,0);C.swap.extra.forEach(e=>add(e[1],0));}
+  const a=C.acts.map((o,i)=>{const x=box.querySelector('input[data-a="'+i+'"]'),on=!!(x&&x.checked);if(on) add(o[1],o[2]);return on?1:0;});
+  C.fixed.forEach(o=>add(o[1],o[2]));
+  document.getElementById("calc-"+k+"-sum").textContent="約 "+calcWan(sum);
+  document.getElementById("calc-"+k+"-det").textContent="其中估計的部分約 "+calcWan(est)+"，實查的部分約 "+calcWan(sum-est);
+  if(save){try{localStorage.setItem("calc-"+k,JSON.stringify({r:r,a:a,w:sw?1:0}));}catch(e){}}
 }
 // ---------- 版本頁路線圖（2026-11-25）：四個版本＋Zillertal 組合，每段標交通時間 ----------
 // legs: [起, 迄, "land"|"fly"|"day", 時間文字, 是否估計, 地圖上不標（兩點太近時）]；時間都取自各版本的每日行程
