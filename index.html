@@ -2643,6 +2643,44 @@ D.kaernten={short:"克恩頓",name:"克恩頓",render(){
 }};
 PLACES.push(["kaernten","克恩頓","奧地利最南邊的湖區","只是好奇（不在行程）"]);
 NAVMAP.kaernten="places";
+// ---------- 捷克 Karlovy Vary（2026-11-25）：只是好奇比較，不在行程；照片直接連 Wikimedia Commons ----------
+KIND.karlovy="alp";
+const KVP={
+  colo:WMC("f/f2","Karlovy_Vary_Ml%C3%BDnsk%C3%A1_kolon%C3%A1da_kv%C4%9Bten_2022_%281%29.jpg","Lubor Ferenc","CC BY-SA 4.0"),
+  vrid:WMC("2/2f","Karlovy_Vary%2C_V%C5%99%C3%ADdlo.jpg","Bohumil Jirout","Public domain"),
+  funi:WMC("b/b2","Karlovy_Vary_stanice_lanovky_Jelen%C3%AD_skok_%2807%29.jpg","Zorka Sojka","CC BY-SA 4.0"),
+  pupp:WMC("f/f0","Karlsbad-202-Grandhotel_Pupp-2012-gje.jpg","Gerd Eichmann","CC BY 4.0"),
+  loket:WMC("a/aa","Loket_castle-0413.jpg","Isiwal","CC BY-SA 4.0")};
+const KVSP=[
+  ["溫泉迴廊 Mlýnská kolonáda","老城中心","沿著 Teplá 河的石柱長廊，裡面有好幾個溫泉出水口；買一個有吸嘴的陶瓷溫泉杯，邊走邊試喝不同溫度的溫泉水（味道鹹鹹的，小孩可能不愛）。",KVP.colo,"Mlýnská kolonáda Karlovy Vary"],
+  ["Vřídlo 溫泉噴泉","老城中心","最有名的溫泉，水溫約 72 度，在室內從地下噴到十幾公尺高，小孩看了會很驚訝（高度是大約）。",KVP.vrid,"Vřídelní kolonáda Karlovy Vary"],
+  ["登山纜車＋Diana 觀景塔","老城旁","坐小纜車上山，觀景塔可以看整個溫泉鎮；山上有小動物園和步道，小孩都適合（營業時間、票價未實查）。",KVP.funi,"Rozhledna Diana Karlovy Vary"],
+  ["Grandhotel Pupp","老城南端","1701 年開業的老飯店，007《皇家夜總會》在這裡取景；電影節期間很熱鬧。可以只進去喝咖啡。",KVP.pupp,"Grandhotel Pupp"],
+  ["Loket 城堡小鎮","西南約 15 分鐘車程","被河灣包圍的小鎮，山頭上有中世紀城堡，老街很好逛；適合當天來回（車程是估計，城堡票價未實查）。",KVP.loket,"Hrad Loket"]];
+D.karlovy={short:"Karlovy Vary",name:"Karlovy Vary",render(){
+  heroPlain("捷克西邊的溫泉小鎮・只是好奇，不在行程","卡羅維瓦利（Karlovy Vary）","捷克最有名的溫泉鎮，靠近德國邊界。彩色的老飯店沿著山谷裡的 Teplá 河蓋，溫泉迴廊可以拿陶瓷杯喝溫泉水；也是 Becherovka 藥草酒和 Moser 水晶玻璃的產地，每年 7 月初有國際電影節。",["捷克","溫泉小鎮","離慕尼黑開車約 4 小時"],KVP.colo);
+  const sights='<div class="sights">'+KVSP.map(s=>'<figure class="sg"><div class="sg-ph"><img src="'+s[3].src+'" alt="'+s[0]+'" loading="lazy">'+creditHTML(s[3])+'</div><figcaption><span class="sg-day">'+s[1]+'</span>'+gmq(s[0]+' ↗',s[4])+'<span class="sg-tx">'+s[2]+'</span></figcaption></figure>').join("")+'</div>';
+  return plWrap("karlovy",
+    sec("在哪裡、適合我們嗎",ul([
+      "在捷克西邊，離布拉格開車約 2 小時，離慕尼黑開車約 4 小時，離林道約 5.5 小時（都是估計）",
+      "跟我們現在的路線（林道、南提洛、威尼斯）方向相反，要去的話比較適合排在一開始從慕尼黑出發，或另外搭配布拉格",
+      "老城平路多、可以推車，太太喜歡的老街和咖啡館很多；溫泉以喝和療養為主，跟日本那種泡湯不一樣",
+      "小孩玩的東西比較少：纜車、觀景塔、Vřídlo 噴泉，附近有 Loket 城堡"]))+
+    sec("代表景點",sights+note("照片來自 Wikimedia Commons，點照片下面的作者可以看原圖和授權。"))+
+    sec("飯店（另一個討論實查）",tbl(["飯店","在哪裡","5 晚、2 大 3 小、含稅"],[
+      ["Parkhotel Richmond","老城南邊的公園裡，走到溫泉迴廊約 20 分鐘（估計）","7.7 萬，全膳"]])+
+      note("2026-11-25 在 Booking 查的 7/31–8/5 住 5 晚價格，只是好奇比較，行程沒有改。Booking 有列兒童俱樂部，但飯店官網只寫溫泉療養、泳池和 SPA，沒寫兒童俱樂部，收幾歲、開放時間都要寫信問（reservation@richmond.cz）。"))+
+    sec("中文遊記",ul([
+      '<a href="https://crossing.cw.com.tw/article/19011" target="_blank" rel="noopener">換日線：用陶瓷杯「喝溫泉」、打卡「007 旅館」</a>，住在歐洲的台灣人寫的，介紹得最完整',
+      '<a href="https://supertaste.tvbs.com.tw/travel/344908" target="_blank" rel="noopener">食尚玩家：卡羅維瓦利一日遊</a>，景點、溫泉杯、溫泉餅乾',
+      '<a href="https://blog.udn.com/jefnjil/66820212" target="_blank" rel="noopener">Jeff & Jill：溫泉鄉卡羅維瓦利（2016）</a>，照片多']))+
+    sec("影片",ul([
+      '<a href="https://www.youtube.com/watch?v=_uCzmltpV7U" target="_blank" rel="noopener">雨心 Uisy：在金象咖啡廳喝下午茶、挑戰溫泉水</a>（中文）',
+      '<a href="https://www.youtube.com/watch?v=rutMl1sPwqw" target="_blank" rel="noopener">CANIS 旅居生活：捷克自駕遊 卡羅維瓦利</a>（粵語，有中文字幕）',
+      '<a href="https://www.youtube.com/watch?v=dyU_5nD76_8" target="_blank" rel="noopener">Karlovy Vary in 4K</a>（街景，沒有旁白）'])));
+}};
+PLACES.push(["karlovy","Karlovy Vary","捷克溫泉小鎮","只是好奇（不在行程）"]);
+NAVMAP.karlovy="places";
 // ---------- 景點勾選（2026-11-25）：全家一起在一支手機上勾「很想去／可以／不用」，依結果建議每個城市住幾晚 ----------
 // 以德義（威尼斯回）為底：慕尼黑進、威尼斯出，總共 12 晚，林道固定 4 晚、Innsbruck 1 晚（拆開車程）
 // 景點格式：[id, 住哪裡, 名稱, 要花幾天, 3 歲, 說明]；天數是大約的（半天＝0.5）
