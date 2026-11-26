@@ -1715,8 +1715,8 @@ function DISIGHTS(v){
   const V=v==="vce";
   return picSec("沿途景點",[
     ["Innsbruck 黃金屋頂老城","7/30","老城平路，可以推車；傍晚可以坐 Nordkette 纜車上山看整座城",SN["zl-3"],"Goldenes Dachl Innsbruck"],
-    ["Seiser Alm 高山草原",V?"8/3":"8/1","歐洲最大的高山草原，路平、能推車，山屋吃午餐",SN["di-2"],"Seiser Alm Bahn Ortisei"],
-    ["Seceda",V?"8/4":"8/2","坐纜車上去看鋸齒岩峰，山頂風大，待 1–2 小時就好",SN["dl-6"],"Seceda Ortisei"],
+    ["Seiser Alm 高山草原",V?"8/2":"8/1","歐洲最大的高山草原，路平、能推車，山屋吃午餐",SN["di-2"],"Seiser Alm Bahn Ortisei"],
+    ["Seceda",V?"沒排（備選）":"8/2","坐纜車上去看鋸齒岩峰，山頂風大，待 1–2 小時就好",SN["dl-6"],"Seceda Ortisei"],
     ["Ritten 百年窄軌小火車",V?"8/1":"8/3","從 Bolzano 坐纜車上去再換小火車，兩個愛火車的會喜歡",SN["di-6"],"Rittner Bahn Oberbozen"],
     ["Ritten 土金字塔",V?"8/1":"8/3","土柱頂著大石頭的奇特地形，從小火車站走過去",SN["di-7"],"Erdpyramiden Ritten"]].concat(V?[
     ["威尼斯大運河、Rialto 橋","8/5–8/6","坐 1 號水上巴士沿大運河慢慢看",SN["dv-2"],"Ponte di Rialto"]]:[]),'所有多洛米蒂景點（含 Braies 湖、Tre Cime）沒車、有車怎麼去，見<a class="go" href="#dolo">多洛米蒂</a>頁。');
@@ -1729,14 +1729,14 @@ function FOODPIC(k){
     ["起司火鍋（Fondue）","瑞士","麵包沾融化的起司，瑞士經典；小孩多半喜歡",SN["fd-6"],""],
     ["Rösti 馬鈴薯煎餅","瑞士","煎得酥脆的馬鈴薯絲，常配香腸或煎蛋",SN["fd-7"],""]],
   di:[
-    ["Bolzano Piazza delle Erbe 市集","Bolzano 3 晚","週一到週五 7:00–19:00、週六到下午 1 點（實查）；水果、起司、Speck、麵包",SN["di-4"],"Piazza delle Erbe Bolzano"],
-    ["Bolzano 拱廊老街（Laubengasse）","Bolzano 3 晚","中世紀的拱廊商店街，下雨也能逛",SN["di-5"],"Via dei Portici Bolzano"],
-    ["Merano 拱廊老街","當天來回","比 Bolzano 小一點、安靜一點，河邊有步道",SN["di-8"],"Lauben Meran"],
+    ["Bolzano Piazza delle Erbe 市集",k==="vven"?"7/31":"Bolzano 3 晚","週一到週五 7:00–19:00、週六到下午 1 點（實查）；水果、起司、Speck、麵包",SN["di-4"],"Piazza delle Erbe Bolzano"],
+    ["Bolzano 拱廊老街（Laubengasse）",k==="vven"?"Bolzano 2 晚":"Bolzano 3 晚","中世紀的拱廊商店街，下雨也能逛",SN["di-5"],"Via dei Portici Bolzano"],
+    ["Merano 拱廊老街",k==="vven"?"8/1":"當天來回","比 Bolzano 小一點、安靜一點，河邊有步道",SN["di-8"],"Lauben Meran"],
     ["Knödel 麵包丸子","南提洛","用麵包做的丸子，有起司、菠菜、Speck 口味，山屋和餐廳都有",SN["fd-2"],""],
     ["Kaiserschmarrn 鬆餅","山屋","撕碎的厚鬆餅撒糖粉、配果醬，小孩最愛",SN["fd-1"],""],
     ["南提洛 Speck 煙燻火腿","南提洛","市集和超市都買得到，配黑麥脆餅當點心",SN["fd-3"],""]]};
   const x=k==="vdi"?[["慕尼黑 Viktualienmarkt 市集","8/5","週一到週六開、週日休；水果、香腸、啤酒花園",SN["fd-5"],"Viktualienmarkt München"]]
-    :k==="vven"?[["威尼斯 Rialto 市集","8/6","早上去，魚市和蔬果攤（營業日未實查）",SN["dv-1"],"Mercato di Rialto"],["Cicchetti 小點心","威尼斯","酒吧櫃台上的一口小麵包，一個一個點，最適合愛吃的人",SN["fd-4"],""]]:[];
+    :k==="vven"?[["慕尼黑 Viktualienmarkt 市集","7/26","週一到週六開、週日休；水果、香腸、啤酒花園",SN["fd-5"],"Viktualienmarkt München"],["威尼斯 Rialto 市集","8/6","早上去，魚市和蔬果攤（營業日未實查）",SN["dv-1"],"Mercato di Rialto"],["Cicchetti 小點心","威尼斯","酒吧櫃台上的一口小麵包，一個一個點，最適合愛吃的人",SN["fd-4"],""]]:[];
   return picSec("吃什麼、逛哪裡",(k==="ch"?L.ch:L.di.concat(x)),k==="ch"?"瑞士外食貴，超市（Coop、Migros）的熟食區很方便。":"市集營業時間見上面的「實查結果」。");
 }
 function ZILSIGHTS(){
@@ -1750,33 +1750,33 @@ function ZILSIGHTS(){
 }
 // 德義版（威尼斯回）：Bolzano 租車、威尼斯還車（2026-11-25）
 function DVCAR(){
-  return sec("另一種交通：Bolzano 租車、威尼斯還車",tbl(["日期","改成"],[
-    ["7/31–8/2","Bolzano 3 晚不用車：老城走路就好，Merano、Brixen 坐火車"],
-    {cells:["8/3（二）","早上在 Bolzano 取車，開到 Ortisei 約 50 分鐘；下午上 Seiser Alm"],cls:"rec"},
-    ["8/4（三）","Seceda；有車的話也可以改去 Tre Cime 或 Braies 湖（單程約 1.5–2 小時）"],
-    {cells:["8/5（四）","Ortisei 開到威尼斯 Piazzale Roma 還車，走高速公路約 3–3.5 小時（繞 Cortina 走山路約 4 小時）；還完車走路就到水上巴士站"],cls:"rec"}])+
-    ul(["2026-11-25 用 KAYAK 實查（8/3 早上 9 點取車、8/5 還車，Europcar Bolzano 機場，Fiat Tipo 旅行車或同級）：在 Bolzano 還 282 美元，開到威尼斯機場還 366 美元，<b>只差約 84 美元（約 2,700 元）</b>，跟一家人坐火車從 Bolzano 到威尼斯的車票差不多，所以建議在威尼斯還",
-      "Bolzano 車站旁也有租車點，同級車在 Bolzano 還 337 美元、在威尼斯機場還 497 美元；KAYAK 沒有列 7 人座，5 人座旅行車要放 2 張兒童座椅，後座會比較擠",
-      "威尼斯還車地點：Piazzale Roma 有 Sixt（每天 8:00–19:00）、Europcar、Hertz，Avis 在旁邊的 Tronchetto 停車場；Europcar、Hertz、Avis 週末有的只開到中午，時間是比價網站上的資料，訂之前要確認",
-      "5 個人要租 7 人座或大一點的旅行車；3 歲、8 歲都要兒童座椅，租車時加訂",
-      "Bolzano 老城有 ZTL 限行區，取車後直接出城；另外要付義大利高速公路費、油錢、Ortisei 停車費",
+  return sec("租車：Bolzano 取車、威尼斯還車（山上 3 天）",tbl(["日期","怎麼走"],[
+    ["7/31–8/1","Bolzano 2 晚不用車：老城走路就好，Ritten 坐纜車、Merano 坐火車"],
+    {cells:["8/2（一）","早上在 Bolzano 取車，開到 Ortisei 約 50 分鐘；下午上 Seiser Alm"],cls:"rec"},
+    ["8/3（二）","車停 Ortisei，Kids Active、步行街、Children's afternoon 都走路或坐公車"],
+    {cells:["8/4（三）","開車去 Braies 湖（約 1.5 小時，要先上網預約停車位），再往東約 30 分鐘到 Funbob，傍晚開回 Ortisei"],cls:"rec"},
+    {cells:["8/5（四）","Ortisei 開到威尼斯還車，走高速公路約 3–3.5 小時；還完車坐水上巴士進本島"],cls:"rec"}])+
+    ul(["2026-11-26 用 KAYAK 實查（8/2 早上 9 點在 Bolzano 機場取車、8/5 中午在威尼斯機場還車，3 天）：<b>Fiat Tipo 旅行車或同級 438 美元（約 1.4 萬）</b>，可以放 4 件行李；Nissan Qashqai 休旅車 442 美元；Fiat Panda 這類小車 303 美元起，但只放得下 1 件行李。都可以在 48 小時前免費取消",
+      "KAYAK 沒有列 7 人座，5 人座旅行車要放 2 張兒童座椅，後座會比較擠；3 歲、8 歲都要兒童座椅，租車時加訂",
+      "威尼斯也可以在 Piazzale Roma 還車（Sixt 每天 8:00–19:00，Europcar、Hertz 也有），還完走路就到水上巴士站；價格沒有另外查",
+      "Bolzano 老城有 ZTL 限行區，取車後直接出城；另外要付義大利高速公路費、油錢、Braies 停車預約和 Ortisei 停車費（估計約 0.8 萬）",
       "省下的是 Ortisei 到威尼斯的公車＋火車（要換 2 次車、約 4–4.5 小時），也不用拖行李轉車"])+
-    note("車程和費用都是估計；租車價格要用實際日期在 Sixt 等租車網站查。"));
+    note("車程是估計；租車價格是比價網站上的總價，訂之前在租車公司官網再確認一次。"));
 }
 // 太太看到的兩個孩子行程：Panaraida、Funbob（2026-11-25）
 function DIKIDS(v){
   const V=v==="vce",s=(t,u)=>'<a href="'+u+'" target="_blank" rel="noopener">'+t+' ↗</a>';
   return sec("太太看到的三個備選",tbl(["","在哪裡、玩什麼","怎麼排","來源（2026-11-25 查）"],[
     {cells:["<b>"+gmq("Panaraida 冒險步道","Panaraida Monte Pana")+"</b>","Santa Cristina 的 Monte Pana，就在 Ortisei 隔壁村。12 個用木頭等自然材料做的關卡：木頭小馬、玩水區（可以野餐）、樹屋、大鞦韆、溜滑梯、坐籃子的小纜車、迷宮、尋寶遊戲；2024 年拿到南提洛「年度家庭健行地點」。3 歲到 12 歲都能玩",
-      (V?"排在 8/4 下午，或用來代替 Seceda":"排在 7/31 下午（到 Ortisei 之後），或 8/2 早上代替 Seceda")+"。從 Ortisei 坐公車到 Santa Cristina 再上 Monte Pana；交通方式、步道長度和開放時間官網沒寫，未實查",
+      (V?"沒排進去；想去的話 8/2 下午代替 Seiser Alm":"排在 7/31 下午（到 Ortisei 之後），或 8/2 早上代替 Seceda")+"。從 Ortisei 坐公車到 Santa Cristina 再上 Monte Pana；交通方式、步道長度和開放時間官網沒寫，未實查",
       s("valgardena.it 介紹","https://www.valgardena.it/it/vacanze-estive-dolomiti/famiglie/panaraida/")+"、"+s("得獎消息","https://www.valgardena.it/it/news-val-gardena/dettaglio/la-panaraida-vince-il-premio-destinazione-escursionistica-per-famiglie-dellanno-in-alto-adige/")],cls:"rec"},
     ["<b>"+gmq("Funbob 山地滑車","Funbob Haunold Innichen")+"</b>","San Candido（Innichen）的 Haunold 山，靠近 Tre Cime。1,750 公尺長、架在鋁軌上的滑車，南提洛最長的夏季滑車。2026 年 5/23–10/18 開，旺季 9:00–18:30；一趟大人 21.5 歐、18 歲以下 15 歐；未滿 3 歲不能坐（2025 年的規定）",
-      "離 Ortisei 開車約 1.5 小時（估計），沒有車很難排。"+(V?"租車的話可以排在 8/4，跟 Tre Cime 同一天，代替 Seceda":"租車的話可以跟 Tre Cime 排同一天，代替 Seceda；坐火車、公車的排法就不建議"),
+      "離 Ortisei 開車約 1.5 小時（估計），沒有車很難排。"+(V?"<b>已排在 8/4</b>，租車，跟 Braies 湖同一天；3 歲不能坐，大人輪流陪":"租車的話可以跟 Tre Cime 排同一天，代替 Seceda；坐火車、公車的排法就不建議"),
       s("Drei Zinnen 官網","https://www.dreizinnen.com/en/the-experience/in-summer/funbob.html")],
     ["<b>"+gmq("Braies 湖（Lago di Braies）","Lago di Braies")+"</b>","Val Pusteria 的 Prags 山谷，綠色湖水、木船，是多洛米蒂最有名的湖。環湖步道約 3.5 公里、大致平坦（估計 1 小時多），可以租木船划。<b>2026 年 7/1–9/15 早上 9 點到下午 4 點，開車進山谷要先上網預約停車位</b>（6 月開放預約），或坐要預約的接駁公車 439（從 Monguelfo 出發）",
-      "離 Ortisei 開車約 1.5 小時（估計）；Funbob 在同一條山谷再往東約 30 分鐘，可以排同一天。"+(V?"租車的話排在 8/4，代替 Seceda":"租車的話代替 Seceda 那天")+"。坐大眾運輸要火車轉火車再轉預約公車，單程 2.5–3 小時（估計），不建議",
+      "離 Ortisei 開車約 1.5 小時（估計）；Funbob 在同一條山谷再往東約 30 分鐘，可以排同一天。"+(V?"<b>已排在 8/4</b>，租車，先上網預約停車位":"租車的話代替 Seceda 那天")+"。坐大眾運輸要火車轉火車再轉預約公車，單程 2.5–3 小時（估計），不建議",
       s("預約停車（P4）","https://www.pragsparking.mts-online.com/en")+"、"+s("整理文章","https://www.in-moments.com/dolomites/how-to-visit-lago-di-braies")+"（非官方；2027 年規定要再查 prags.bz）"]])+
-    note("三個地方都還沒排進上面的每日行程，看要不要換掉哪一天。Braies 湖和 Funbob 有車才好去，最好排同一天。Funbob 的價錢是 2026 年的，3 歲能不能由大人陪著坐，要再問。"));
+    note((V?"Braies 湖和 Funbob 已排進 8/4（租車），Panaraida 還沒排。":"三個地方都還沒排進上面的每日行程，看要不要換掉哪一天。Braies 湖和 Funbob 有車才好去，最好排同一天。")+"Funbob 的價錢是 2026 年的，3 歲能不能由大人陪著坐，要再問。"));
 }
 function DICAR(){
   return sec("另一種交通：林道租車、慕尼黑還車（不住 Innsbruck）",tbl(["日期","改成"],[
@@ -1791,7 +1791,8 @@ function DICAR(){
 }
 function DIBODY(v){
   const L='<a class="go" href="#lindau">林道</a>',V=v==="vce";
-  const head=V?[["7/25（日）","飛機上","晚上 21:15 土航從桃園出發，在伊斯坦堡轉機"],["7/26（一）",L,"早上 09:20 到慕尼黑，火車約 2.5 小時到林道，休息倒時差"]]
+  const MU='<a class="go" href="#munich">慕尼黑</a>';
+  const head=V?[["7/25（日）","飛機上","晚上 21:15 土航從桃園出發，在伊斯坦堡轉機"],{cells:["7/26（一）",MU,"早上 09:20 到慕尼黑，S-Bahn 約 40 分鐘進市區，先放行李；下午逛"+gmq("Viktualienmarkt 市集","Viktualienmarkt München")+"（週一有開）和"+gmq("瑪麗恩廣場","Marienplatz München")+"，早點睡倒時差"],cls:"rec"}]
     :[["7/25（日）","飛機上","晚上 23:25 長榮從桃園直飛慕尼黑"],["7/26（一）",L,"清晨 07:35 到慕尼黑，火車約 2.5 小時到林道，休息倒時差"]];
   const ibk=[{cells:["7/30（五）","Innsbruck","火車約 3 小時：林道坐 10 分鐘到 Bregenz 換車（一天約有一班直達）；下午逛"+gmq("黃金屋頂老城","Goldenes Dachl Innsbruck")+"、"+gmq("Maria-Theresien-Straße","Maria-Theresien-Straße Innsbruck")+"，傍晚可以坐"+gmq("Nordkette 纜車","Nordkettenbahnen Innsbruck")+"上山看整座城"],cls:"rec"}];
   const seiser="坐纜車上 "+gmq("Seiser Alm 高山草原","Seiser Alm Bahn Ortisei")+"：路平，可以推車；山屋吃午餐（Knödel 麵包丸子、Kaiserschmarrn 鬆餅）";
@@ -1800,34 +1801,38 @@ function DIBODY(v){
   const ritten=gmq("Ritten 纜車","Rittner Seilbahn Bozen")+"，換"+gmq("百年窄軌小火車","Rittner Bahn Oberbozen")+"，看"+gmq("土金字塔","Erdpyramiden Ritten");
   const lauben=gmq("Laubengasse 拱廊老街","Via dei Portici Bolzano"),erbe=gmq("Piazza delle Erbe 市集","Piazza delle Erbe Bolzano");
   const day="火車當天來回 "+gmq("Merano","Merano")+"（約 40 分鐘，拱廊老街、溫泉、河邊步道）或 "+gmq("Brixen","Bressanone")+"（約 30 分鐘，主教座堂、老城）";
+  const merano=gmq("Merano","Merano")+" 老城（拱廊老街、河邊步道）和"+gmq("溫泉","Terme Merano");
   const mid=V?[
-    {cells:["7/31（六）","Bolzano","Innsbruck 坐直達 railjet 約 2 小時到 Bolzano；中午前到的話，"+erbe+"週六開到下午 1 點；下午逛"+lauben],cls:"rec"},
-    {cells:["8/1（日）","Bolzano","早上"+otzi+"；下午坐"+ritten+"。週日市集和很多商店休息"],cls:"rec"},
-    ["8/2（一）","Bolzano",day+"；回來逛"+erbe],
-    {cells:["8/3（二）","Ortisei","350 號公車約 1 小時上山；下午"+seiser+"。想輕鬆一點的話，改去 "+gmq("Children's afternoon","Piazza S. Antonio Ortisei")+"（每週二 14:30–18:00，S. Antonio 廣場，3 歲也能玩）"],cls:"rec"},
-    ["8/4（三）","Ortisei","8、12 歲參加 "+diSrc("Kids Active","https://www.valgardena.it/en/addresses/detail/base/poi/st-ulrich-groeden/val-gardena-kids-active/ECBC29B8E4E11413F88976EC7D52B590/")+" 一整天（9:30–16:30，自己帶午餐，前一天 18:00 前到遊客中心報名）；大人帶 3 歲早上"+seceda+"；下午逛 Ortisei 步行街（木雕店）"]]:[
+    {cells:["7/31（六）","Bolzano","Innsbruck 坐直達 railjet 約 2 小時到 Bolzano；中午前到的話，"+erbe+"週六開到下午 1 點，"+gmq("Piazza della Vittoria","Piazza della Vittoria Bolzano")+"週六也有大市集（8:00–13:00）；下午逛"+lauben+"，傍晚走"+gmq("Talfer 河邊步道","Passeggiata del Talvera Bolzano")],cls:"rec"},
+    {cells:["8/1（日）","Bolzano","早上坐"+ritten+"；下午火車約 40 分鐘到"+merano+"（溫泉票價未實查）。週日市集和很多商店休息"],cls:"rec"},
+    {cells:["8/2（一）","Ortisei","早上在 Bolzano 取車，開約 50 分鐘上山；下午全家"+seiser],cls:"rec"},
+    {cells:["8/3（二）","Ortisei","8、12 歲參加 "+diSrc("Kids Active","https://www.valgardena.it/en/addresses/detail/base/poi/st-ulrich-groeden/val-gardena-kids-active/ECBC29B8E4E11413F88976EC7D52B590/")+" 一整天（9:30–16:30，自己帶午餐，前一天 18:00 前到遊客中心報名）；大人帶 3 歲早上逛 Ortisei 步行街（木雕店），下午去 "+gmq("Children's afternoon","Piazza S. Antonio Ortisei")+"（每週二 14:30–18:00，S. Antonio 廣場）"],cls:"rec"},
+    {cells:["8/4（三）","Ortisei","開車約 1.5 小時到"+gmq("Braies 湖","Lago di Braies")+"（停車要先上網預約），環湖步道平、可以划船；下午往東約 30 分鐘坐"+gmq("Funbob 山地滑車","Funbob Haunold Innichen")+"（3 歲不能坐）"],cls:"rec"}]:[
     {cells:["7/31（六）","Ortisei","Innsbruck 坐直達 railjet 約 2 小時到 Bolzano，再坐 350 號公車約 1 小時上山（也可以在 Ponte Gardena 下車轉公車）；傍晚逛 Ortisei 步行街（木雕店）"],cls:"rec"},
     {cells:["8/1（日）","Ortisei",seiser],cls:"rec"},
     {cells:["8/2（一）","Bolzano","早上"+seceda+"；下午坐 350 號公車約 1 小時下山到 Bolzano（每小時一班），傍晚逛"+lauben],cls:"rec"},
     {cells:["8/3（二）","Bolzano","早上"+otzi+"；下午坐"+ritten],cls:"rec"},
     ["8/4（三）","Bolzano","早上逛"+erbe+"；下午"+day+"（Brixen 週三有農夫市集）"]];
   const tail=V?[
-    {cells:["8/5（四）","威尼斯","Ortisei 坐 350 號公車下山，在 Ponte Gardena 或 Bolzano 轉火車，經 Verona 到威尼斯，全程約 4–4.5 小時；下午坐"+gmq("1 號水上巴士","Vaporetto Linea 1 Venezia")+"沿大運河到"+gmq("Rialto 橋","Ponte di Rialto")],cls:"rec"},
-    {cells:["8/6（五）","威尼斯","早上逛"+gmq("Rialto 市集","Mercato di Rialto")+"（魚市、蔬果）；"+gmq("聖馬可廣場","Piazza San Marco")+"趁早去人比較少；中午熱就回住處休息，傍晚再出門吃"],cls:"rec"},
+    {cells:["8/5（四）","威尼斯","Ortisei 開車約 3–3.5 小時到威尼斯還車，坐"+gmq("1 號水上巴士","Vaporetto Linea 1 Venezia")+"沿大運河進本島；下午"+gmq("聖馬可廣場","Piazza San Marco")+"、"+gmq("總督宮","Palazzo Ducale Venezia")+"（先上網訂票，票價未實查）"],cls:"rec"},
+    {cells:["8/6（五）","威尼斯","早上逛"+gmq("Rialto 市集","Mercato di Rialto")+"（魚市、蔬果）和"+gmq("Rialto 橋","Ponte di Rialto")+"；下午從 Fondamente Nove 坐水上巴士到"+gmq("Burano 彩色島","Burano")+"（單程約 40 分鐘，估計），傍晚回本島吃 Cicchetti"],cls:"rec"},
     ["8/7（六）","飛機上","坐機場公車或水上巴士到機場；土航 09:40 起飛，在伊斯坦堡轉機"],
     ["8/8（日）","—","早上 07:55 到桃園"]]:[
     ["8/5（四）","慕尼黑","Bolzano 坐直達 railjet 約 3 小時 50 分到慕尼黑（10:36 或 12:34 開）；下午 "+gmq("Viktualienmarkt 市集","Viktualienmarkt München")+"、瑪麗恩廣場"],
     ["8/6（五）","慕尼黑",gmq("德意志博物館","Deutsches Museum München")+"或"+gmq("交通館","Verkehrszentrum Deutsches Museum")+"（老火車、電車）；整理行李"],
     ["8/7（六）","飛機上","S-Bahn 約 40 分鐘到機場；12:00 長榮直飛"],
     ["8/8（日）","—","清晨 06:35 到桃園"]];
-  return sec("每日行程（7 月 25 日出發，15 天・12 晚）",tbl(["日期","住","安排"],head.concat([
+  return sec("每日行程（7 月 25 日出發，15 天・12 晚）",tbl(["日期","住","安排"],head.concat(V?[
+    {cells:["7/27（二）",L,"早上從慕尼黑坐火車約 2.5 小時到林道；下午逛"+gmq("島上老城","Maximilianstraße Lindau")+"、港口的石獅和燈塔"],cls:"rec"},
+    ["7/28（三）",L,"<b>林道兒童節</b>：早上看小孩遊行；下午 "+gmq("Pfänder 纜車","Pfänderbahn Bregenz")],
+    ["7/29（四）",L,gmq("新天鵝堡","Schloss Neuschwanstein")+"當天來回（火車＋公車單程約 3 小時，估計；門票先上網訂時段）"]]:[
     ["7/27（二）",L,gmq("拉文斯堡遊戲樂園","Ravensburger Spieleland")],
     ["7/28（三）",L,"<b>林道兒童節</b>：早上看小孩遊行；下午 "+gmq("Pfänder 纜車","Pfänderbahn Bregenz")],
     ["7/29（四）",L,"島上老城散步、博登湖遊船；新天鵝堡想去就這天當天來回"]],ibk,mid,tail))+
-    note("Ortisei 和 Bolzano 都在義大利的南提洛，德語、義語都通。火車與公車時間已對照 2026 年的時刻表（見下面「實查結果」），Innsbruck 那兩段是估計；2027 年的時刻表還沒定案，訂票前用 ÖBB／DB 再確認。"+(V?"Kids Active 收 6–12 歲，2026 年一人一天 78 歐（住合作住宿 40 或 60 歐），至少 3 人開團，2027 年的節目還沒公布；Children's afternoon 2026 年一人 15–20 歐（2026-11-25 查 valgardena.it）。Ortisei 到威尼斯、Rialto 市集的營業日沒有實查。土航回程另有晚上 20:00 起飛的班次（8/8 下午 17:55 到桃園），可以在威尼斯多玩一個白天。":""))+
-    ul(["為什麼住 Innsbruck：林道到 Ortisei 一天坐完要 6.5–7 小時，拆成兩天，每天約 3 小時；Innsbruck 老城也值得逛"+(V?"":"。不想多換一次住處，可以租車（見下面）"),
-      "為什麼山上只住 2 晚：Seiser Alm、Seceda 都是坐纜車上去，各半天到一天就看到多洛米蒂最有名的景色；Ortisei 8 月很貴，吃和逛又都在 Bolzano，所以 Bolzano 住 3 晚",
-      V?"為什麼先 Bolzano 再 Ortisei：從 Innsbruck 坐火車直達 Bolzano，不用拖行李轉公車上山；最後再從山上直接往威尼斯。山上那兩天想要有車，可以在 Bolzano 租車、威尼斯還車（見下面）":"為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"]))+
+    note("Ortisei 和 Bolzano 都在義大利的南提洛，德語、義語都通。火車與公車時間已對照 2026 年的時刻表（見下面「實查結果」），Innsbruck 那兩段是估計；2027 年的時刻表還沒定案，訂票前用 ÖBB／DB 再確認。"+(V?"Kids Active 收 6–12 歲，2027 年哪幾天開還沒公布，先排週二，公布後可能要和 8/4 對調；2026 年一人一天 78 歐（住合作住宿 40 或 60 歐），至少 3 人開團；Children's afternoon 2026 年一人 15–20 歐（2026-11-25 查 valgardena.it）。Rialto 市集的營業日、Ortisei 到威尼斯的車程沒有實查。土航回程另有晚上 20:00 起飛的班次（8/8 下午 17:55 到桃園），可以在威尼斯多玩一個白天。":""))+
+    ul((V?["這是 2026-11-26 全家在「景點勾選」頁勾完後重排的：慕尼黑 1、林道 3、Innsbruck 1、Bolzano 2、Ortisei 3、威尼斯 2。林道少住一晚，兒童節那天還是在林道"]:[]).concat(["為什麼住 Innsbruck：林道到 Ortisei 一天坐完要 6.5–7 小時，拆成兩天，每天約 3 小時；Innsbruck 老城也值得逛"+(V?"":"。不想多換一次住處，可以租車（見下面）"),
+      V?"為什麼山上住 3 晚：全家勾的 Seiser Alm、Kids Active、Braies 湖＋Funbob 各要一天；Bolzano 的市集、老街、Ritten、Merano 排 2 天就夠":"為什麼山上只住 2 晚：Seiser Alm、Seceda 都是坐纜車上去，各半天到一天就看到多洛米蒂最有名的景色；Ortisei 8 月很貴，吃和逛又都在 Bolzano，所以 Bolzano 住 3 晚",
+      V?"為什麼先 Bolzano 再 Ortisei：從 Innsbruck 坐火車直達 Bolzano，不用拖行李轉公車上山；8/2 在 Bolzano 取車上山，山上 3 天有車，最後直接開到威尼斯還車（見下面）":"為什麼 15 天：長榮從慕尼黑直飛回台 8/6 沒有、8/7 有，和德南版一樣"])))+
   DISIGHTS(v)+DIKIDS(v)+FOODPIC(V?"vven":"vdi")+
   (V?DVCAR():DICAR())+
   DICHECK(v)+
@@ -1840,21 +1845,26 @@ function DIBODY(v){
     {cells:["去 7/25","長榮直飛慕尼黑","23:25 → 隔天 07:35",""],cls:"rec"},
     {cells:["回 8/7","長榮直飛台北","12:00 → 隔天 06:35","<b>48,849 元</b>"],cls:"rec"}])+
     note("和德南版同一張票。一家五口約 22 萬。")))+
-  sec("住宿（2026-11-24、11-25 用 Booking 實查）",tbl(["地方","住宿","位置","房型","評分","總價（含稅）"],[
-    [L+" 4 晚","和瑞士版一樣","","","",'2.9–6.3 萬（<a class="go" href="#lindau">林道介紹</a>）'],
+  sec(V?"住宿（2026-11-26 用 Booking 實查）":"住宿（2026-11-24、11-25 用 Booking 實查）",tbl(["地方","住宿","位置","房型","評分","總價（含稅）"],(V?[
+    ["慕尼黑 1 晚",bk("Novotel Suites München Parkstadt Schwabing","de/suitehotelmunchenparkstadtschwabing.zh-tw.html","2027-07-26","2027-07-27"),"北邊 Schwabing","2 間套房（每間最多 3 人），不含早餐、不可退","8.0","0.8 萬"],
+    ["",bk("harry's home München","de/harrys-home-munchen.zh-tw.html","2027-07-26","2027-07-27"),"離市中心 7 公里","整層 2 房、75 m²","8.6","0.9 萬（黑五優惠，原價 1.3 萬）"],
+    [L+" 3 晚",bk("Ferienhof am Taubenberg","de/ferienhof-am-taubenberg.zh-tw.html","2027-07-27","2027-07-30"),"北邊 4 公里，要搭車","整層 2 房、58 m²、廚房","9.0","2.2 萬"],
+    ["",bk("An den Ufergärten 湖景公寓","de/an-den-ufergarten-lindau.zh-tw.html","2027-07-27","2027-07-30"),"陸側湖邊","整層 2 房、75 m²、廚房","7.8","4.2 萬"],
+    ["",bk("Spiegel Garni","de/spiegel-garni-lindau.zh-tw.html","2027-07-27","2027-07-30"),"林道島上","2 間房（一間最多 3 人），含早餐","9.2","5.2 萬"]]:[
+    [L+" 4 晚","和瑞士版一樣","","","",'2.9–6.3 萬（<a class="go" href="#lindau">林道介紹</a>）']]).concat([
     ["Innsbruck 1 晚",bk("Alexander","at/alexander-innsbruck.zh-tw.html","2027-07-30","2027-07-31"),"離市中心 1 公里","整層 2 房、65 m²、廚房","9.0","1.0 萬"],
-    ["",bk("myQuartier City Chalets","at/myquartier-city-chalets.zh-tw.html","2027-07-30","2027-07-31"),"離市中心 1.1 公里","整層 2 房、60 m²、廚房","8.6","1.0 萬"],
-    ["",bk("Marktbar Studios","at/marktbar-studios.zh-tw.html","2027-07-30","2027-07-31"),"老城旁，離市中心 250 公尺","1 房＋客廳（沙發床）、60 m²","8.6","1.5 萬"]].concat(V?[
-    ["Bolzano 3 晚",bk("Talvera Dream","it/talvera-dream.zh-tw.html","2027-07-31","2027-08-03"),"離市中心 0.5 公里","整層 2 房、廚房、頂樓","9.6","3.2 萬"],
-    ["",bk("Stay COOPER Laurenz","it/residence-laurenz.zh-tw.html","2027-07-31","2027-08-03"),"老城，離市中心 350 公尺","整層 2 房、2 衛浴、110 m²","8.4","3.5 萬"],
-    ["",bk("Stay COOPER Laubenhaus","it/laubenhaus.zh-tw.html","2027-07-31","2027-08-03"),"拱廊老街上，離市中心 150 公尺","頂樓整層 2 房、2 衛浴、80 m²","8.7","4.7 萬"],
-    ["Ortisei 2 晚",bk("Apartment Rainer","it/apartment-rainer.zh-tw.html","2027-08-03","2027-08-05"),"離市中心 0.6 公里","整層 2 房、70 m²、廚房","9.1","5.4 萬"],
-    ["",bk("Mountain Living Apartment Idylia","it/mountain-living-apartment.zh-tw.html","2027-08-03","2027-08-05"),"離市中心 350 公尺","整層 2 房、2 衛浴、90 m²","9.4","6.0 萬"],
-    ["",bk("Apartments Rainer - Val Gardena","it/apartments-rainer-val-gardena.zh-tw.html","2027-08-03","2027-08-05"),"離市中心 0.6 公里","整層 2 房、3 衛浴、90 m²","9.2","6.7 萬"],
-    ["威尼斯 2 晚",bk("beautiful house in Venice","it/beautiful-house-in-venice.zh-tw.html","2027-08-05","2027-08-07"),"Cannaregio 區，離市中心 1.2 公里","整層 2 房、65 m²、廚房","9.3","1.5 萬"],
+    ["",bk("myQuartier City Chalets","at/myquartier-city-chalets.zh-tw.html","2027-07-30","2027-07-31"),"離市中心 1.1 公里","整層 2 房、60 m²、廚房","8.6",V?"0.9 萬":"1.0 萬"],
+    ["",bk("Marktbar Studios","at/marktbar-studios.zh-tw.html","2027-07-30","2027-07-31"),"老城旁，離市中心 250 公尺","1 房＋客廳（沙發床）、60 m²","8.6","1.5 萬"]]).concat(V?[
+    ["Bolzano 2 晚",bk("Talvera Dream","it/talvera-dream.zh-tw.html","2027-07-31","2027-08-02"),"離市中心 0.5 公里","整層 2 房、51 m²、廚房、頂樓","9.6","2.2 萬"],
+    ["",bk("Stay COOPER Laurenz","it/residence-laurenz.zh-tw.html","2027-07-31","2027-08-02"),"老城，離市中心 350 公尺","整層 2 房、2 衛浴、105 m²","8.4","2.4 萬"],
+    ["",bk("Stay COOPER Laubenhaus","it/laubenhaus.zh-tw.html","2027-07-31","2027-08-02"),"拱廊老街上，離市中心 150 公尺","頂樓整層 2 房、2 衛浴、80 m²","8.7","3.5 萬"],
+    ["Ortisei 3 晚",bk("Apartment Rainer","it/apartment-rainer.zh-tw.html","2027-08-02","2027-08-05"),"離市中心 0.6 公里","整層 2 房、70 m²、廚房","9.1","7.6 萬"],
+    ["",bk("Mountain Living Apartment Idylia","it/mountain-living-apartment.zh-tw.html","2027-08-02","2027-08-05"),"離市中心 350 公尺","整層 2 房、2 衛浴、90 m²","9.4","8.7 萬"],
+    ["",bk("Apartments Rainer - Val Gardena","it/apartments-rainer-val-gardena.zh-tw.html","2027-08-02","2027-08-05"),"離市中心 0.6 公里","整層 2 房、3 衛浴、90 m²","9.2","9.6 萬"],
+    ["威尼斯 2 晚",bk("beautiful house in Venice","it/beautiful-house-in-venice.zh-tw.html","2027-08-05","2027-08-07"),"Cannaregio 區，離市中心 1.2 公里","整層 2 房、65 m²、廚房","9.3","1.4 萬"],
     ["",bk("Family apartment with Terrace","it/large-family-apartment.zh-tw.html","2027-08-05","2027-08-07"),"Castello 區，離市中心 0.7 公里","整層 2 房、120 m²、露台","9.5","1.9 萬"],
     ["",bk("Venice Lance","it/venice-lance.zh-tw.html","2027-08-05","2027-08-07"),"離火車站走路 2 分鐘，有電梯","整層 2 房、75 m²、廚房","8.9","2.1 萬"],
-    {cells:["合計 12 晚","","","","","約 14–21 萬"],total:5}]:[
+    {cells:["合計 12 晚","","","","","約 15–23 萬"],total:5}]:[
     ["Ortisei 2 晚",bk("Apartment Rainer","it/apartment-rainer.zh-tw.html","2027-07-31","2027-08-02"),"離市中心 0.6 公里","整層 2 房、70 m²、廚房","9.1","5.4 萬"],
     ["",bk("Mountain Living Apartment Idylia","it/mountain-living-apartment.zh-tw.html","2027-07-31","2027-08-02"),"離市中心 350 公尺","整層 2 房、2 衛浴、90 m²","9.4","5.7 萬"],
     ["",bk("Dolomites Chalet Niuasi","it/villa-erina-sankt-ulrich.zh-tw.html","2027-07-31","2027-08-02"),"離市中心 0.9 公里","整層 2 房、2 衛浴、100 m²","9.9","6.4 萬"],
@@ -1864,7 +1874,7 @@ function DIBODY(v){
     ["慕尼黑 2 晚",bk("Novotel Suites München Parkstadt Schwabing","de/suitehotelmunchenparkstadtschwabing.zh-tw.html","2027-08-05","2027-08-07"),"北邊 Schwabing","兩間家庭套房","8.0","1.1 萬"],
     ["",bk("gambino hotel WERKSVIERTEL","de/gambino-werksviertel.zh-tw.html","2027-08-05","2027-08-07"),"東站旁，離市中心 2.6 公里","家庭房＋單人房","8.5","1.1 萬"],
     {cells:["合計 12 晚","","","","","約 14–20 萬"],total:5}]))+
-    note("2 大 3 小（12、8、3 歲）、一間房查，不列青年旅館、上下舖和共用衛浴。Ortisei 是 8 月旺季，2 晚就要 5.4–6.7 萬（3 晚約 7.0–8.4 萬）；同樣 3 晚 Bolzano 只要 3.2–4.7 萬。"+(V?"威尼斯本島沒有車，行李要自己拖過橋，住離車站近的比較輕鬆。":"")))+
+    note(V?"2 大 3 小（12、8、3 歲）、一間房查（慕尼黑 Novotel、林道 Spiegel Garni 一間住不下 5 人，算 2 間），不列青年旅館、上下舖和共用衛浴；有優惠的是未登入看到的價格。Ortisei 是 8 月旺季，3 晚要 7.6–9.6 萬，是最貴的一段；Bolzano 2 晚只要 2.2–3.5 萬。Innsbruck、威尼斯日期沒變，也在同一天重查。威尼斯本島沒有車，行李要自己拖過橋，住離車站近的比較輕鬆。":"2 大 3 小（12、8、3 歲）、一間房查，不列青年旅館、上下舖和共用衛浴。Ortisei 是 8 月旺季，2 晚就要 5.4–6.7 萬（3 晚約 7.0–8.4 萬）；同樣 3 晚 Bolzano 只要 3.2–4.7 萬。"))+
   sec("小孩子適合嗎？",tbl(["站","3 歲","8、12 歲"],[
     [L,"兒童節遊行、遊戲樂園、Pfänder 纜車都可以","都可以"],
     ["Innsbruck","老城平路，可以推車；Nordkette 纜車可以","黃金屋頂、坐纜車上山"],
@@ -1873,25 +1883,25 @@ function DIBODY(v){
     ["威尼斯","到處是橋和階梯，推車要常常抬，帶背帶比較方便；8 月很熱，中午回住處休息","坐水上巴士、看運河；沒有火車博物館"]]:[])))+
   sec("預估花費（"+FAM+"、15 天・12 晚）",tbl(["項目","金額","說明"],[
     V?["機票","約 18 萬","土航慕尼黑進、威尼斯出，去回都在伊斯坦堡轉機（實查）"]:["機票","約 22 萬","長榮直飛來回（實查）"],
-    V?["住宿 12 晚","14–21 萬","上面實查的價格；Ortisei 那 2 晚最貴"]:["住宿 12 晚","14–20 萬","上面實查的價格；Ortisei 那 2 晚最貴"],
+    V?["住宿 12 晚","15–23 萬","上面實查的價格（2026-11-26）；Ortisei 那 3 晚最貴"]:["住宿 12 晚","14–20 萬","上面實查的價格；Ortisei 那 2 晚最貴"],
     ["餐飲","5–6.5 萬","義大利比瑞士便宜，有廚房的地方自己煮（估計）"],
-    ["交通","1.5–2.5 萬",(V?"慕尼黑–林道、林道–Innsbruck–Bolzano、Ortisei–威尼斯的火車和公車，威尼斯水上巴士":"慕尼黑–林道、林道–Innsbruck–Ortisei、Bolzano–慕尼黑的火車和公車")+"；Ortisei、Bolzano 的合作住宿送客人卡，南提洛區內公車、火車免費，Bolzano 的卡還含 Ritten 纜車（實查）；長途火車不含"],
-    ["門票","1.5–2.5 萬","纜車（Seiser Alm、Seceda、Ritten、Nordkette）、冰人博物館、遊戲樂園、Pfänder（估計）"],
+    V?["交通","3–4.5 萬","慕尼黑–林道、林道–Innsbruck–Bolzano 的火車，威尼斯水上巴士；Bolzano 取車、威尼斯還車 3 天約 1.4 萬（KAYAK 實查），加油錢、過路費、停車、兒童座椅約 0.8 萬（估計）；南提洛合作住宿的客人卡含區內公車、火車"]:["交通","1.5–2.5 萬",(V?"慕尼黑–林道、林道–Innsbruck–Bolzano、Ortisei–威尼斯的火車和公車，威尼斯水上巴士":"慕尼黑–林道、林道–Innsbruck–Ortisei、Bolzano–慕尼黑的火車和公車")+"；Ortisei、Bolzano 的合作住宿送客人卡，南提洛區內公車、火車免費，Bolzano 的卡還含 Ritten 纜車（實查）；長途火車不含"],
+    V?["門票","1.5–2.5 萬","纜車（Seiser Alm、Ritten、Nordkette、Pfänder）、新天鵝堡、Kids Active、Funbob、Merano 溫泉、總督宮（估計）"]:["門票","1.5–2.5 萬","纜車（Seiser Alm、Seceda、Ritten、Nordkette）、冰人博物館、遊戲樂園、Pfänder（估計）"],
     ["其他","0.8–1.9 萬","旅平險、網路、桃園機場來回"],
-    {cells:["合計",V?"約 41–53 萬":"約 45–55 萬",""],total:1}])+
+    {cells:["合計",V?"約 43–56 萬":"約 45–55 萬",""],total:1}])+
     note("機票和住宿是實查，其他是經驗估計。"))+(V?calcHTML("dv"):"")+
   '<section class="cols"><div><h2>好處</h2>'+ul(V?["多洛米蒂的鋸齒岩峰，坐纜車就看得到，不用爬山","吃和逛最多：Innsbruck 老城、Bolzano 的市集和拱廊老街，最後再加上威尼斯整座老城","機票比慕尼黑回便宜約 4 萬","最後不用再往北坐 4 小時火車回慕尼黑"]
       :["多洛米蒂的鋸齒岩峰，坐纜車就看得到，不用爬山","Bolzano 吃得最好：義大利菜加南提洛菜，市集、拱廊老街都在走路範圍；路上還順便逛 Innsbruck 老城","去回都長榮直飛，和德南版同一張票","沒有少女峰那種年齡、身高限制"])+
-    '</div><div><h2>要注意</h2>'+ul(V?["換 4 次住處（林道 → Innsbruck → Bolzano → Ortisei → 威尼斯）","去回都要在伊斯坦堡轉機，比直飛多 2–4 小時","8 月的威尼斯很熱、人很多，推車常常要抬","兩個愛火車的孩子少了德意志博物館"]
+    '</div><div><h2>要注意</h2>'+ul(V?["換 5 次住處（慕尼黑 → 林道 → Innsbruck → Bolzano → Ortisei → 威尼斯）","山上 3 天要租車，Bolzano 取、威尼斯還","去回都要在伊斯坦堡轉機，比直飛多 2–4 小時","8 月的威尼斯很熱、人很多，推車常常要抬","兩個愛火車的孩子少了德意志博物館"]
       :["換 4 次住處（林道 → Innsbruck → Ortisei → Bolzano → 慕尼黑），比瑞士版、德南版多兩次；租車的話可以少住 Innsbruck","Ortisei 8 月住宿很貴，要早訂","Tre Cime、Braies 湖離 Ortisei 遠，沒有車不排"])+'</div></section>'+
   (!V?sec('和<a class="go" href="#vven">威尼斯回</a>比',tbl(["","慕尼黑回","威尼斯回"],[
-    ["住哪裡","林道 4、Innsbruck 1、Ortisei 2、Bolzano 3、慕尼黑 2","林道 4、Innsbruck 1、Bolzano 3、Ortisei 2、威尼斯 2"],
+    ["住哪裡","林道 4、Innsbruck 1、Ortisei 2、Bolzano 3、慕尼黑 2","慕尼黑 1、林道 3、Innsbruck 1、Bolzano 2、Ortisei 3、威尼斯 2"],
     ["最後 2 晚","慕尼黑：Viktualienmarkt 市集、德意志博物館","威尼斯：運河、Rialto 市集、整座老城"],
-    ["8/5 的車","Bolzano → 慕尼黑直達，3 小時 50 分","Ortisei → 威尼斯，公車＋火車約 4–4.5 小時"],
+    ["8/5 的車","Bolzano → 慕尼黑直達，3 小時 50 分","Ortisei → 威尼斯，租車開約 3–3.5 小時"],
     ["去回","長榮直飛，約 14 小時","土航經伊斯坦堡，約 16–18 小時"],
     ["機票","約 22 萬","約 18 萬"],
-    ["住宿 12 晚","14–20 萬","14–21 萬"],
-    {cells:["合計","約 45–55 萬","約 41–53 萬"],total:1}])):"");
+    ["住宿 12 晚","14–20 萬","15–23 萬"],
+    {cells:["合計","約 45–55 萬","約 43–56 萬"],total:1}])):"");
 }
 function ZILBODY(){
   const L='<a class="go" href="#lindau">林道</a>';
@@ -2001,31 +2011,32 @@ function FOODSEC(){
 // 自己算總價（2026-11-25）：選住宿、勾景點，總價即時更新。CALC[k] 每個版本一份資料；目前只有德義（威尼斯回）dv
 // 選項格式：[名稱, 一家五口台幣, 1=實查／0=估計, 說明]；check 類多一欄：預設勾選
 const CALC={dv:{
-  fixed:[["交通（火車、公車、水上巴士）",20000,0,"1.5–2.5 萬取中間"],["其他（旅平險、網路、桃園機場來回）",13500,0,"0.8–1.9 萬取中間"]],
+  fixed:[["交通（火車、公車、水上巴士）",15000,0,"不含租車，估計"],["租車 3 天（Bolzano 取、威尼斯還）",14000,1,"KAYAK 2026-11-26，Fiat Tipo 旅行車 438 美元"],["油錢、過路費、停車、兒童座椅",8000,0,"估計"],["其他（旅平險、網路、桃園機場來回）",13500,0,"0.8–1.9 萬取中間"]],
   groups:[
     {k:"fly",t:"機票（2026-11-25 Google 機票）",opts:[["土航，經伊斯坦堡",180000,1,"每位大人 39,637 元"],["荷航，經阿姆斯特丹",195000,0,"每位大人 42,849 元，一家按比例估"]]},
-    {k:"li",t:"林道 4 晚",opts:[["Ferienhof am Taubenberg（北邊 4 公里，要搭車）",29000,1],["Ufergärten 湖邊兩房公寓",46000,1],["Spiegel Garni（島上，含早餐）",61000,1]],d:1},
-    {k:"ib",t:"Innsbruck 1 晚",opts:[["Alexander",10000,1],["myQuartier City Chalets",10000,1],["Marktbar Studios（老城旁）",15000,1]]},
-    {k:"bz",t:"Bolzano 3 晚",opts:[["Talvera Dream",32000,1],["Stay COOPER Laurenz",35000,1],["Stay COOPER Laubenhaus（拱廊老街上）",47000,1]]},
-    {k:"ot",t:"Ortisei 2 晚",opts:[["Apartment Rainer",54000,1],["Mountain Living Apartment Idylia",60000,1],["Apartments Rainer - Val Gardena",67000,1]]},
-    {k:"ve",t:"威尼斯 2 晚",opts:[["beautiful house in Venice",15000,1],["Family apartment with Terrace",19000,1],["Venice Lance（離車站 2 分鐘）",21000,1]]},
+    {k:"mu",t:"慕尼黑 1 晚",opts:[["Novotel Suites（2 間套房，不可退）",7740,1],["harry's home 兩房公寓（黑五優惠）",8897,1]]},
+    {k:"li",t:"林道 3 晚",opts:[["Ferienhof am Taubenberg（北邊 4 公里，要搭車）",21749,1],["Ufergärten 湖邊兩房公寓",42121,1],["Spiegel Garni（島上，2 間房，含早餐）",52347,1]],d:1},
+    {k:"ib",t:"Innsbruck 1 晚",opts:[["Alexander",10313,1],["myQuartier City Chalets",8887,1],["Marktbar Studios（老城旁）",14642,1]]},
+    {k:"bz",t:"Bolzano 2 晚",opts:[["Talvera Dream",21517,1],["Stay COOPER Laurenz",24153,1],["Stay COOPER Laubenhaus（拱廊老街上）",34677,1]]},
+    {k:"ot",t:"Ortisei 3 晚",opts:[["Apartment Rainer",76047,1],["Mountain Living Apartment Idylia",86767,1],["Apartments Rainer - Val Gardena",95659,1]]},
+    {k:"ve",t:"威尼斯 2 晚",opts:[["beautiful house in Venice",13613,1],["Family apartment with Terrace",18789,1],["Venice Lance（離車站 2 分鐘）",21145,1]]},
     {k:"food",t:"餐飲 15 天",opts:[["多自己煮",50000,0],["一半自己煮、一半外食",57500,0],["多外食",65000,0]],d:1}],
   swap:{t:"Bolzano＋Ortisei 改住親子飯店 Familienhotel Huber（Vals，7/31–8/5 共 5 晚，三餐全包，有 kids club）",price:261322,real:1,
-    off:["bz","ot"],food:-40000,extra:[["Huber 要租車",15000],["Huber 大人的酒和咖啡",3000]],
-    n:"Booking 2026-11-25 實查（45 m² 家庭套房，含稅）。勾了之後，Bolzano、Ortisei 的住宿不算，餐飲少算約 4 萬、加租車約 1.5 萬（估計）。4 間親子飯店的比較在<a class=\"go\" href=\"#dolo\">多洛米蒂介紹</a>的「親子飯店」"},
+    off:["bz","ot"],food:-40000,extra:[["Huber 大人的酒和咖啡",3000]],
+    n:"Booking 2026-11-25 實查（45 m² 家庭套房，含稅）。勾了之後，Bolzano、Ortisei 的住宿不算，餐飲少算約 4 萬（估計）；租車已經算在固定項目裡。4 間親子飯店的比較在<a class=\"go\" href=\"#dolo\">多洛米蒂介紹</a>的「親子飯店」"},
   acts:[
-    ["7/27 拉文斯堡遊戲樂園",6050,0,"3 歲起就要買票；線上約 42 歐、現場 51 歐（2026 年，比價網站）",1],
     ["7/28 Pfänder 纜車",1370,1,"家庭來回票 38 歐（2026 年官網）",1],
-    ["7/29 博登湖遊船",2000,0,"大人約 18.5 歐（2025 年），小孩半價是推估",1],
-    ["7/29 新天鵝堡當天來回",2900,0,"大人門票 21 歐、18 歲以下免費，加火車（估計）",0],
+    ["7/29 新天鵝堡當天來回",2900,0,"大人門票 21 歐、18 歲以下免費，加火車（估計）",1],
+    ["博登湖遊船（沒排，備選）",2000,0,"大人約 18.5 歐（2025 年），小孩半價是推估",0],
     ["7/30 Innsbruck Nordkette 纜車（到 Seegrube）",6100,1,"大人 53.1 歐、6–15 歲 31.9 歐、6 歲以下免費（官網 2026/11–2027/11 價格）",1],
-    ["8/1 冰人博物館",940,1,"家庭票 26 歐",1],
-    ["8/1 Ritten 纜車＋小火車",0,1,"Bolzano 客人卡免費",1],
-    ["8/2 Merano 或 Brixen 當天來回",0,1,"南提洛區內火車用客人卡免費",1],
-    ["8/3 Children's afternoon（3 個小孩）",1900,0,"一人 15–20 歐（2026 年）",0],
-    ["8/3 Seiser Alm 纜車（從 Ortisei）",4770,1,"大人 39 歐、8–14 歲 27.3 歐、8 歲以下免費（2026 年官網）",1],
-    ["8/4 Kids Active（8、12 歲一整天）",5620,1,"一人 78 歐；住合作住宿 40 或 60 歐（2026 年）",1],
-    ["8/4 Seceda 纜車",7990,1,"大人 74 歐、8–15 歲 37 歐、8 歲以下免費（2026 年）",1],
+    ["7/31–8/1 Ritten 纜車＋小火車",0,1,"Bolzano 客人卡免費",1],
+    ["8/1 Merano 當天來回",0,1,"南提洛區內火車用客人卡免費；溫泉票價未實查，沒有算",1],
+    ["冰人博物館（沒排，備選）",940,1,"家庭票 26 歐",0],
+    ["8/2 Seiser Alm 纜車（從 Ortisei）",4770,1,"大人 39 歐、8–14 歲 27.3 歐、8 歲以下免費（2026 年官網）",1],
+    ["8/3 Kids Active（8、12 歲一整天）",5620,1,"一人 78 歐；住合作住宿 40 或 60 歐（2026 年）",1],
+    ["8/3 Children's afternoon（3 歲）",650,0,"一人 15–20 歐（2026 年）",1],
+    ["8/4 Funbob 山地滑車（2 大＋8、12 歲各一趟）",2630,1,"大人 21.5 歐、18 歲以下 15 歐（2026 年官網），3 歲不能坐",1],
+    ["Seceda 纜車（沒排，備選）",7990,1,"大人 74 歐、8–15 歲 37 歐、8 歲以下免費（2026 年）",0],
     ["8/5–8/7 威尼斯水上巴士 48 小時票",5040,1,"一人 35 歐，6 歲以下免費",1]]
 }};
 const calcWan=x=>(x/10000).toFixed(1)+" 萬";
@@ -2138,10 +2149,10 @@ function vMapSec(rk,title){
 // 德義版「威尼斯回」（2026-11-25）
 Object.assign(P,{venice:[45.4408,12.3155,"威尼斯"],vce:[45.5053,12.3519,"威尼斯機場"]});
 Object.assign(LDIR,{venice:"left",vce:"right"});
-ROUTE.vven={stops:[["lindau","4 晚"],["ibk","1 晚"],["bolzano","3 晚"],["ortisei","2 晚"],["venice","2 晚"]],ends:["muc","vce"],endT:{muc:"慕尼黑機場・抵達",vce:"威尼斯機場・回台"},spots:["merano","brixen"],
-  legs:[MUCIN,["lindau","ibk","land","火車約 3 小時（Bregenz 換車）",1],["ibk","bolzano","land","直達 railjet 約 2 小時",1],["bolzano","ortisei","land","350 號公車約 1 小時"],
-    ["bolzano","merano","day","火車約 40 分",1,1],["bolzano","brixen","day","火車約 30 分",1,1],["ortisei","venice","land","公車＋火車約 4–4.5 小時",1],["venice","vce","land","公車或水上巴士 30–60 分",1,1]],
-  note:"慕尼黑進、威尼斯出；Innsbruck 住 1 晚把車程拆成兩天；先住 Bolzano、再上 Ortisei，最後 2 晚住威尼斯。"};
+ROUTE.vven={stops:[["munich","1 晚"],["lindau","3 晚"],["ibk","1 晚"],["bolzano","2 晚"],["ortisei","3 晚"],["venice","2 晚"]],ends:["muc","vce"],endT:{muc:"慕尼黑機場・抵達",vce:"威尼斯機場・回台"},spots:["neusch","merano"],
+  legs:[["muc","munich","land","S-Bahn 約 40 分",1,1],["munich","lindau","land","火車約 2.5 小時",1],["lindau","neusch","day","火車＋公車約 3 小時",1,1],["lindau","ibk","land","火車約 3 小時（Bregenz 換車）",1],["ibk","bolzano","land","直達 railjet 約 2 小時",1],["bolzano","ortisei","land","租車約 50 分"],
+    ["bolzano","merano","day","火車約 40 分",1,1],["ortisei","venice","land","租車約 3–3.5 小時",1],["venice","vce","land","公車或水上巴士 30–60 分",1,1]],
+  note:"慕尼黑進、威尼斯出；第一晚住慕尼黑，林道 3 晚，Innsbruck 住 1 晚把車程拆成兩天；先住 Bolzano、再上 Ortisei 3 晚（租車），最後 2 晚住威尼斯。"};
 // ---------- 其他版本（2026-11-25 拆頁）：#cmp 只放總覽（比較表、怎麼選、愛吃逛老街），四個版本各自一頁 ----------
 KIND.cmp="alp";KIND.vde="alp";KIND.vdi="alp";KIND.at="alp";KIND.w15="alp";KIND.vven="alp";KIND.vzil="alp";
 // 版本代號 → 頁面網址（#at、#w15 沿用舊網址）
@@ -2221,7 +2232,7 @@ function DSBODY(){
 }
 const VLIST=[["de","德南版","慕尼黑進出・林道 4、Garmisch 3、慕尼黑 5・去回都直飛","約 40–50 萬"],
              ["di","德義版（慕尼黑回）","慕尼黑進出・林道 4、Innsbruck 1、Ortisei 2、Bolzano 3、慕尼黑 2・去回都直飛","約 45–55 萬"],
-             ["dv","德義版（威尼斯回）","慕尼黑進、威尼斯出・林道 4、Innsbruck 1、Bolzano 3、Ortisei 2、威尼斯 2・土航經伊斯坦堡轉機","約 41–53 萬"],
+             ["dv","德義版（威尼斯回）","慕尼黑進、威尼斯出・慕尼黑 1、林道 3、Innsbruck 1、Bolzano 2、Ortisei 3、威尼斯 2・土航經伊斯坦堡轉機","約 43–56 萬"],
              ["zl","Zillertal 組合","慕尼黑進出・林道 4、Zillertal 3、Bolzano 4、慕尼黑 1・去回都直飛","約 41–53 萬"],
              ["at","德奧版","慕尼黑進、維也納出・林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3・去回都直飛","約 40–53 萬"],
              ["wa","家人 A 版","慕尼黑進、蘇黎世出・後半段和瑞士版一樣","約 47–64 萬"]];
@@ -2250,7 +2261,7 @@ function vpage(k,body,hero){
 }
 D.vde={short:"德南版",name:"德南版",render(){return vpage("de",DSBODY,()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進出","德南版：林道＋Garmisch＋慕尼黑","林道一樣住 4 晚、過兒童節，之後到 Garmisch 坐齒軌火車上 Zugspitze，最後在慕尼黑住 5 晚逛博物館、去樂高樂園。去回都長榮直飛。",["去回都直飛","換 2 次住處",FAM+"約 40–50 萬"],SN["ds-2"]));}};
 D.vdi={short:"德義版（慕尼黑回）",name:"德義版（慕尼黑回）",render(){return vpage("di",()=>DIBODY("muc"),()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進出","德義版（慕尼黑回）：林道＋多洛米蒂＋Bolzano","林道住 4 晚過兒童節，Innsbruck 住 1 晚把車程拆成兩天，之後到義大利多洛米蒂山區的 Ortisei 住 2 晚、Bolzano 住 3 晚，最後回慕尼黑。上山都坐纜車。",["去回都直飛","換 4 次住處",FAM+"約 45–55 萬"],SN["dh-di"]));}};
-D.vven={short:"德義版（威尼斯回）",name:"德義版（威尼斯回）",render(){return vpage("dv",()=>DIBODY("vce"),()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進、威尼斯出","德義版（威尼斯回）：林道＋多洛米蒂＋威尼斯","林道 4 晚、Innsbruck 1 晚，先到 Bolzano 住 3 晚、再上 Ortisei 住 2 晚，最後 2 晚住威尼斯，從威尼斯飛回台灣。機票比較便宜，但去回都要在伊斯坦堡轉機。",["伊斯坦堡轉機","換 4 次住處",FAM+"約 41–53 萬"],SN["dh-dv"]));}};
+D.vven={short:"德義版（威尼斯回）",name:"德義版（威尼斯回）",render(){return vpage("dv",()=>DIBODY("vce"),()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進、威尼斯出","德義版（威尼斯回）：林道＋多洛米蒂＋威尼斯","全家勾完景點後重排：第一晚住慕尼黑，林道 3 晚（含 7/28 兒童節）、Innsbruck 1 晚，Bolzano 2 晚、再上 Ortisei 住 3 晚（租車去 Braies 湖、Funbob），最後 2 晚住威尼斯，從威尼斯飛回台灣。機票比較便宜，但去回都要在伊斯坦堡轉機。",["伊斯坦堡轉機","換 5 次住處",FAM+"約 43–56 萬"],SN["dh-dv"]));}};
 D.vzil={short:"Zillertal 組合",name:"Zillertal 組合",render(){return vpage("zl",ZILBODY,()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進出","Zillertal 組合：林道＋Zillertal＋Bolzano","林道住 4 晚過兒童節，之後到奧地利 Zillertal 山谷的 Mayrhofen 住 3 晚，再到 Bolzano 住 4 晚（當天來回 Seiser Alm），最後在慕尼黑住 1 晚。路上分成兩段，不用一次坐太久。",["去回都直飛","換 3 次住處",FAM+"約 41–53 萬"],SN["dh-zl"]));}};
 D.at={short:"德奧版",name:"德奧版",render(){return vpage("at",ATBODY,()=>heroPlain("2027 年 7 月底・14 天・11 晚・慕尼黑進、維也納出","德奧版：林道＋薩爾斯堡＋維也納","林道一樣住 4 晚、過兒童節，之後不去瑞士，改到薩爾斯堡、Hallstatt 和維也納。去回都直飛，不用轉機。",["去回都直飛","換 3 次住處",FAM+"約 40–53 萬"],D.salzburg.hero));}};
 D.w15={short:"家人 A 版",name:"家人 A 版",render(){return vpage("wa",W15A,()=>heroPlain("2027 年 7 月底・15 天・12 晚・慕尼黑進、蘇黎世出","家人 A 版","家人提的版本：慕尼黑進，先到 Füssen、林道，後半段和瑞士版一樣去琉森和少女峰，從蘇黎世回台。",["家人提案","換 5 次住處",FAM+"約 47–64 萬"],D.de.hero));}};
@@ -2282,20 +2293,20 @@ D.cmp={short:"其他版本",name:"其他版本",render(){
     ["天數","14 天・11 晚","15 天・12 晚","15 天・12 晚","15 天・12 晚","15 天・12 晚","14 天・11 晚","15 天・12 晚"],
     ["日期（台灣）","7/25–8/7","7/25–8/8","7/25–8/8","7/25–8/8","7/25–8/8","7/25–8/7","7/25–8/8"],
     ["進出","蘇黎世進出","慕尼黑進出","慕尼黑進出","慕尼黑進、威尼斯出","慕尼黑進出","慕尼黑進、維也納出","慕尼黑進、蘇黎世出"],
-    ["住哪裡","林道 4、琉森 4、少女峰 3","林道 4、Garmisch 3、慕尼黑 5","林道 4、Innsbruck 1、Ortisei 2、Bolzano 3、慕尼黑 2","林道 4、Innsbruck 1、Bolzano 3、Ortisei 2、威尼斯 2","林道 4、Zillertal 3、Bolzano 4、慕尼黑 1","林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3","慕尼黑 1、Füssen 1、林道 2、琉森 4、Interlaken 3、蘇黎世 1"],
-    ["換住處","<b>2 次</b>","<b>2 次</b>","4 次","4 次","3 次","3 次","5 次"],
+    ["住哪裡","林道 4、琉森 4、少女峰 3","林道 4、Garmisch 3、慕尼黑 5","林道 4、Innsbruck 1、Ortisei 2、Bolzano 3、慕尼黑 2","慕尼黑 1、林道 3、Innsbruck 1、Bolzano 2、Ortisei 3、威尼斯 2","林道 4、Zillertal 3、Bolzano 4、慕尼黑 1","林道 4、薩爾斯堡 3、Hallstatt 1、維也納 3","慕尼黑 1、Füssen 1、林道 2、琉森 4、Interlaken 3、蘇黎世 1"],
+    ["換住處","<b>2 次</b>","<b>2 次</b>","4 次","5 次","3 次","3 次","5 次"],
     ["7/28 兒童節","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住林道","前一晚住 Füssen，清晨要趕路"],
     ["新天鵝堡","從林道當天來回","去 Garmisch 路上順路","想去就 7/29 從林道當天來回","想去就 7/29 從林道當天來回","想去就 7/29 從林道當天來回","從林道當天來回","住 Füssen 但排不進去"],
-    ["主要玩什麼","交通博物館、Rigi、Pilatus、少女峰的齒軌火車","Zugspitze 齒軌火車、德意志博物館、紐倫堡鐵道博物館、樂高樂園","Innsbruck 老城、坐纜車看多洛米蒂（Seiser Alm、Seceda）、Bolzano 市集和老街、Ritten 小火車","同慕尼黑回，最後 2 天換成威尼斯的運河、Rialto 市集","Zillertalbahn 窄軌火車、Zillertal 纜車、Innsbruck 老城、Seiser Alm、Bolzano 市集","Pfänder、薩爾斯堡老城、Schafberg 齒軌火車、湖區、維也納","前段慕尼黑、薩爾斯堡；後段和瑞士版一樣"],
-    ["交通","火車","火車；林道到 Garmisch 租車一天","火車＋公車","火車＋公車；威尼斯坐水上巴士","火車＋公車","火車；租車兩天","火車；7/27 一天跑三個地方"],
+    ["主要玩什麼","交通博物館、Rigi、Pilatus、少女峰的齒軌火車","Zugspitze 齒軌火車、德意志博物館、紐倫堡鐵道博物館、樂高樂園","Innsbruck 老城、坐纜車看多洛米蒂（Seiser Alm、Seceda）、Bolzano 市集和老街、Ritten 小火車","慕尼黑市集、林道兒童節、Seiser Alm、Kids Active、Braies 湖＋Funbob，最後 2 天威尼斯的運河、Rialto 市集、Burano","Zillertalbahn 窄軌火車、Zillertal 纜車、Innsbruck 老城、Seiser Alm、Bolzano 市集","Pfänder、薩爾斯堡老城、Schafberg 齒軌火車、湖區、維也納","前段慕尼黑、薩爾斯堡；後段和瑞士版一樣"],
+    ["交通","火車","火車；林道到 Garmisch 租車一天","火車＋公車","火車＋公車；山上 3 天租車（Bolzano 取、威尼斯還）；威尼斯坐水上巴士","火車＋公車","火車；租車兩天","火車；7/27 一天跑三個地方"],
     ["機票","要轉機：國泰經香港約 14 萬、新航經新加坡約 21 萬","<b>去回都直飛</b>，約 22 萬","<b>去回都直飛</b>，約 22 萬（和德南版同一張）","土航經伊斯坦堡轉機，約 18 萬","<b>去回都直飛</b>，約 22 萬（和德南版同一張）","<b>去回都直飛</b>，約 23–26 萬","長榮直飛去、土航轉機回，約 24 萬"],
-    ["住宿","11 晚約 9–19 萬","12 晚約 8–14 萬","12 晚約 14–20 萬（Ortisei 最貴）","12 晚約 14–21 萬","12 晚約 10–17 萬","11 晚約 8–13 萬","前段 3.0–5.4 萬，琉森和 Interlaken 同瑞士版"],
+    ["住宿","11 晚約 9–19 萬","12 晚約 8–14 萬","12 晚約 14–20 萬（Ortisei 最貴）","12 晚約 15–23 萬","12 晚約 10–17 萬","11 晚約 8–13 萬","前段 3.0–5.4 萬，琉森和 Interlaken 同瑞士版"],
     ["3 歲","大部分可以；少女峰有幾項有年齡、身高限制","樂高樂園、遊戲樂園最適合；峽谷步道推車不能進","Seiser Alm 草原路平、能推車；沒有年齡、身高限制","同慕尼黑回；威尼斯到處是橋和階梯，推車要常常抬","山上遊樂場；Seiser Alm 草原路平、能推車","Hallstatt 鹽礦未滿 4 歲不能進","同瑞士版，但前 3 天很累"],
-    ["最大的問題","瑞士物價高；不經香港就要搭新航","沒有瑞士的湖和雪山；只能 8/7 回","換 4 次住處；Ortisei 住宿貴","換 4 次住處；去回都要轉機；8 月威尼斯很熱、人多","多洛米蒂只看一天；蒸汽火車這幾天沒開","沒有瑞士的大山","前 3 天太趕"],
+    ["最大的問題","瑞士物價高；不經香港就要搭新航","沒有瑞士的湖和雪山；只能 8/7 回","換 4 次住處；Ortisei 住宿貴","換 5 次住處；去回都要轉機；8 月威尼斯很熱、人多","多洛米蒂只看一天；蒸汽火車這幾天沒開","沒有瑞士的大山","前 3 天太趕"],
     ["吃（愛吃的人）",s(2),s(3),s(5),s(5),s(4),s(5),s(2)],
     ["市集、老街",s(3),s(4),s(4),s(5),s(4),s(5),s(3)],
     ["要走山路嗎","不用，都坐車","Garmisch 有峽谷步道","不用，坐纜車","不用，坐纜車","不用，坐纜車","幾乎不用","不用"],
-    ["<b>合計</b>","約 35–57 萬（改搭新航約 42–58 萬）","約 40–50 萬","約 45–55 萬","約 41–53 萬","約 41–53 萬","約 40–53 萬","約 47–64 萬"]])+'</div>'+
+    ["<b>合計</b>","約 35–57 萬（改搭新航約 42–58 萬）","約 40–50 萬","約 45–55 萬","約 43–56 萬","約 41–53 萬","約 40–53 萬","約 47–64 萬"]])+'</div>'+
     note("機票和住宿是 11/20–11/25 實查，其他是估計。勾選上面的版本，表裡只留勾選的那幾欄（會記在這台裝置上）。「吃」「市集、老街」兩列的星星和下面的評分表一樣。點表頭的名稱，可以看那一版的細節。"))+
   FOODSEC()+
   sec("怎麼選",ul([
